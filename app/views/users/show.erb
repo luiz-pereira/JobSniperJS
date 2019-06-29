@@ -1,0 +1,61 @@
+<style>
+	table, th, td {
+ 		border: 1px solid black;
+	}
+	th, tr {text-align: center}
+	tr:nth-child(even) {background-color: #f2f2f2;}
+	li {text-align: left}
+</style>
+
+<h2><a href="/<%=@user.username%>/requests/new">Make a new request</a><br><br></h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Request #</th>
+    <th>Titles</th>
+	<th>included keys</th>
+	<th>excluded keys</th>
+	<th>Last updated</th>
+    <th>actions</th>
+  </tr>
+  <%@requests.each do |request|%>
+	<tr>
+		<td><a href="/<%=@user.username%>/requests/<%=request.id%>"><%=request.id%></a></td>
+		<td>
+			<ul>
+				<%request.job_titles.each do |title|%>
+					<li><%=title.job_title%></li>
+				<%end%>
+			</ul>
+		</td>
+		<td>
+			<ul>
+				<%request.parameters.where(exclude: false).each do |parameter|%>
+					<li><%=parameter.criteria%></li>
+				<%end%>
+			</ul>
+		</td>
+		<td>
+			<ul>
+				<%request.parameters.where(exclude: true).each do |parameter|%>
+					<li><%=parameter.criteria%></li>
+				<%end%>
+			</ul>
+		</td>
+		<td>
+			<%=request.date_updated%><br>
+			<a href="/<%=@user.username%>/requests/<%=request.id%>/update">Update Request</a>
+		</td>
+		<td>
+			<form action="/<%=@user.username%>/requests/<%=request.id%>" method="post">
+				<input type="hidden" name="_method" value="patch">
+				<input type="submit" value="edit">
+			</form>
+			<form action="/<%=@user.username%>/requests/<%=request.id%>" method="post">
+				<input type="hidden" name="_method" value="delete">
+				<input type="submit" value="delete">
+			</form>
+		</td>
+	</tr>
+  <%end%>
+</table>

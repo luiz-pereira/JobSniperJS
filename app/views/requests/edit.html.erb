@@ -1,0 +1,62 @@
+<style>
+	#select_include {
+						position: absolute;
+						left: 38%;
+						top:25%;
+						font-size: 24px;
+						width: 10%;
+					}
+
+	#include {
+				position: absolute;
+				left:32%;
+			}
+
+	#select_exclude {
+						position: absolute;
+						left: 60%;
+						top: 25%;
+						font-size: 24px;
+						width: 10%;
+					}
+
+	#exclude {
+				position: absolute;
+				left:54%;
+			}
+
+	#submit {			position: absolute;
+						left: 47%;
+						top: 45%;
+						font-size: 24px;
+					}
+
+</style>
+
+<div>
+	<form id="include" action="/<%=@user.username%>/requests/new/<%=@reqest.id%>/include" method="post">
+		<label for="expression">Include:</label>
+		<input type="text" name="expression" placeholder="any expression">
+		<input type="submit" value="add">
+	</form>
+	<form id="exclude" action="/<%=@user.username%>/requests/new/<%=@reqest.id%>/exclude" method="post">
+		<label for="expression">Exclude:</label>
+		<input type="text" name="expression" placeholder="any expression">
+		<input type="submit" value="add">
+	</form>
+	<select id="select_include" name="include" multiple>
+		<%@include.each do |inc|%>
+			<option value="<%=inc.criteria%>"><%=inc.criteria%></option>
+		<%end%>
+	</select>
+	<select id="select_exclude"name="exclude" multiple>
+		<%@exclude.each do |exc|%>
+			<option value="<%=exc.criteria%>"><%=exc.criteria%></option>
+		<%end%>
+	</select>
+
+	<form action="/<%=@user.username%>/requests/<%=@reqest.id%>" method="post">
+		<input type="submit" id="submit" value="Make Request">
+	</form>
+
+</div>

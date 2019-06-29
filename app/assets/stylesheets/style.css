@@ -1,0 +1,22 @@
+div form {text-align: center;}
+input{font-size:24px;text-align: center;}
+h2.form_title {text-align: center;}
+#homepage {font-size:36px;text-align: center;}
+img.homelogo{
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				width: 50%;
+			}
+#loginhome {
+				position:absolute;
+				left:800px;
+				top:450px;
+				font-size: 26px;
+			}
+#signuphome {
+				position:absolute;
+				left:800px;
+				top:450px;
+				font-size: 26px;
+			}
