@@ -1,35 +1,14 @@
 class ApplicationController < ActionController::Base
+	protect_from_forgery with: :exception
+	helper_method :current_user, :logged_in?
 
-	set :session_secret, "ultra-confidential"
-	enable :sessions
-	disable :protection
-	register Sinatra::Flash
-
-	configure do
-		# set :public_folder, 'public'
-		set :views, 'app/views'
+	def logged_in?
+		current_user
 	end
 
-	get '/' do
-		if logged_in?
-			user = current_user
-			redirect "/#{user.username}/home"
-		else
-			erb :home
-		end
-	end
-
-	helpers do
-		def current_user
-			User.find_by id: session[:user_id]
-		end
-
-		def logged_in?
-			!!current_user
-		end
-
-		def logout
-			session.clear
+	def current_user
+		if session[:user_id]
+			User.find_by(id: session[:user_id])
 		end
 	end
 

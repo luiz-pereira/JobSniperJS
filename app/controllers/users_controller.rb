@@ -1,53 +1,35 @@
 class UsersController < ApplicationController
-	get '/signup' do
-		logout
-		erb :signup
+
+	def new
+		@user = User.new
 	end
 
-	post '/signup' do
-		if !!User.find_by(email: params[:user][:email])
-			erb :signup_failure
+	def create
+		@user = User.new (user_params)
+		if @user.valid?
+			@user.save
+			session[:user_id] = @user.id
+			redirect_to user_path(@user)
 		else
-			params[:user][:username] = get_username(params[:user][:email])
-			user = User.create(params[:user])
-			session[:user_id] = user.id
-			redirect "/#{user.username}/home"
+			render new_user_path
 		end
 	end
 
-	get '/login' do
-		logout
-		erb :login
-	end
-
-	post '/login' do
-		user = User.find_by(email: params[:user][:email])
-		if user && user.authenticate(params[:user][:password])
-			session[:user_id] = user.id
-			redirect "/#{user.username}/home"
-		else
-			erb :login_failure
-		end
-	end
-
-	get '/:username/home' do
-		@user = current_user
-		if !current_user
-			redirect '/login'
-		else
+	def show
+		if session[:user_id]
+			@user = User.find(session[:user_id])
 			@requests = @user.requests
-			erb :user_home
+		else
+			redirect_to root_path
 		end
 	end
 
-	get '/logout' do
-		logout
-		redirect '/'
+
+
+	private
+
+	def user_params
+		params.require(:user).permit(:name, :height, :happiness, :nausea, :tickets, :admin, :password)
 	end
 
-	helpers do
-		def get_username(email)
-			email.split('@')[0]
-		end
-	end
 end

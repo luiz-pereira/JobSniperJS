@@ -1,9 +1,18 @@
 module RequestsHelper
+
+	def parameters_exclude(request)
+		request.parameters.select{|a|a.exclude}
+	end
+
+	def parameters_include(request)
+		request.parameters.reject{|a|a.exclude}
+	end
+
 	class Scraper
 		attr_accessor :request_id, :criteria
 
 		def	initialize (request, criteria)
-			@reqest = request
+			@request = request
 			@criteria = criteria
 		end
 
@@ -44,7 +53,7 @@ module RequestsHelper
 				attribs[:province] = "Ontario"
 				attribs[:country] = "Canada"
 				attribs[:criteria] = @criteria
-				@reqest.jobs << Job.create(attribs)
+				@request.jobs.create(attribs)
 			end
 		end
 
@@ -53,11 +62,11 @@ module RequestsHelper
 		end
 
 		def clean_jobs_by_title(criteria)
-			@reqest.jobs.where("criteria=? AND title NOT LIKE ?", criteria, "%#{criteria}%").destroy_all
+			@request.jobs.where("criteria=? AND title NOT LIKE ?", criteria, "%#{criteria}%").delete_all
 		end
 
 		def get_description(criteria)
-			jobs = @reqest.jobs.where(criteria: criteria)
+			jobs = @request.jobs.where(criteria: criteria)
 			jobs.each do |job|
 				doc=Nokogiri::HTML(open(job.link))
 				job.description = doc.search(".jobsearch-jobDescriptionText").text.strip
@@ -66,13 +75,14 @@ module RequestsHelper
 		end
 
 		def clean_jobs_by_description(criteria)
-			@reqest.parameters.each do |parameter|
-				if parameter.exclude
-					@reqest.jobs.where("criteria=? AND description LIKE ?", criteria, "%#{parameter.criteria}%").destroy_all
-				else
-					@reqest.jobs.where("criteria=? AND description NOT LIKE ?", criteria, "%#{parameter.criteria}%").destroy_all
-				end
+			@request.includes.each do |parameter|
+				@request.jobs.where("criteria=? AND description NOT LIKE ?", criteria, "%#{parameter.criteria}%").destroy_all
+			end
+			@request.excludes.each do |parameter|
+				@request.jobs.where("criteria=? AND description LIKE ?", criteria, "%#{parameter.criteria}%").destroy_all
 			end
 		end
+
 	end
+
 end

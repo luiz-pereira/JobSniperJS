@@ -1,0 +1,53 @@
+<% if flash[:alert] %>
+	<div class="alert alert-warning" role="alert">
+  	<%= flash[:alert] %>
+	</div>
+<% end %>
+
+	<%= form_for @request do |f| %>
+	<%= f.hidden_field :request_id, {:value => @request.id} %>
+		<div class='text-center'>
+			<%= f.fields_for :job_titles do |jt| %>
+				<%= jt.label "Job titles"%><br>
+				<%= jt.text_field :title_select, placeholder: "new job title" %>
+				<%= jt.submit "Add", class:'btn-sm btn-primary'%>
+				<div class="d-flex justify-content-center input-group">
+					<%= jt.collection_select :selected_job_titles, @user.job_titles_selections, :id, :title_select, {prompt: false}, {:multiple => true, class: "text-center col-md-2 form-control"}%>
+					<span class="my-auto input-group-btn">
+						<%= jt.submit "Delete Selected", :class => 'btn-sm btn-outline-danger' %>
+					</span>
+				</div>
+			<% end %>
+
+			<%= f.fields_for :includes do |inc| %>
+				<br>
+				<%= inc.label "include terms"%><br>
+				<%= inc.text_field "include", placeholder: 'include in search' %>
+				<%= inc.submit "Add 'include'", class:'btn-sm btn-primary'%>
+				<div class="d-flex justify-content-center input-group">
+					<%= inc.collection_select :criteria, @request.includes, :id, :criteria, {prompt: false}, {:multiple => true, class: "text-center col-md-2 form-control"} %>
+					<span class="my-auto input-group-btn">
+						<%= inc.submit "Delete Includes", :class => 'btn-sm btn-outline-danger' %>
+					</span>
+				</div>
+			<% end %>
+
+			<%= f.fields_for :excludes do |exc| %>
+				<br>
+				<%= exc.label "Exclude terms"%><br>
+				<%= exc.text_field "exclude", placeholder: 'exclude from search' %>
+				<%= exc.submit "Add 'exclude'", class:'btn-sm btn-primary'%>
+				<div class="d-flex justify-content-center input-group">
+					<%= exc.collection_select :criteria, @request.excludes, :id, :criteria, {prompt: false}, {:multiple => true, class: "text-center col-md-2 form-control"} %>
+					<span class="my-auto input-group-btn">
+						<%= exc.submit "Delete Excludes", :class => 'btn-sm btn-outline-danger' %>
+					</span>
+				</div>
+			<% end %>
+			<br>
+			<%= f.submit "Make Request", class:'btn-lg btn-success' %>
+		</div>
+	<% end %>
+
+
+

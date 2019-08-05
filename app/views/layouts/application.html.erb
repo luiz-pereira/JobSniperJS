@@ -1,15 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <title>JobSniper</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+		<%= stylesheet_link_tag "application" %>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<title>JobSniper</title>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+		<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+			<% unless logged_in?%>
+				<a class="navbar-brand" href=<%= root_path %>><%= image_tag 'logosmall', class:'navimg' %></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<%= link_to 'Home', root_path, class: "nav-link" %>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Sign Up</a>
+						</li>
+					</ul>
+				</div>
+			<% else %>
+				<a class="navbar-brand" href=<%= user_path(current_user) %>><%= image_tag 'logosmall', class:'navimg' %></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<h3>Welcome, <%= current_user.username %></h3>
+				<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<%= link_to 'Requests', user_path(current_user), class: "nav-link" %>
+						</li>
+						<li class="nav-item">
+							<%= link_to "Log out", logout_path, method: :delete %>
+						</li>
+					</ul>
+				</div>
+			<% end %>
+				</ul>
+
+			</div>
+		</nav>
+
+		<%=yield%>
+
   </body>
 </html>

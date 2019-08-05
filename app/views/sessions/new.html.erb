@@ -1,0 +1,12 @@
+<%= stylesheet_link_tag "home" %>
+
+<div class='container-fluid'>
+		<%= image_tag 'logobig.png', id:'main-logo' %>
+		<%= image_tag 'Rectangle2.png', id:'blue-wave2'%>
+		<%= image_tag 'Rectangle.png', id:'blue-wave'%>
+</div>
+<%= flash[:error] %>
+
+<%= form_for @user, url: '/login', class:"form-signin" do |f| %>
+	<%= render partial: '/users/form', locals: {f: f} %>
+<% end %>

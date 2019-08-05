@@ -1,15 +1,9 @@
-<style>
-	table, th, td {
- 		border: 1px solid black;
-	}
-	th, tr {text-align: center}
-	tr:nth-child(even) {background-color: #f2f2f2;}
-	li {text-align: left}
-</style>
-
-<h2><a href="/<%=@user.username%>/requests/new">Make a new request</a><br><br></h2>
-
-<table style="width:100%">
+<%= stylesheet_link_tag "user_home" %>
+<br>
+<h4><%= link_to 'Make a new request', new_user_request_path(@user) %></h4>
+<br>
+<br>
+<table class='table-hover' style="width:100%">
   <tr>
     <th>Request #</th>
     <th>Titles</th>
@@ -20,7 +14,8 @@
   </tr>
   <%@requests.each do |request|%>
 	<tr>
-		<td><a href="/<%=@user.username%>/requests/<%=request.id%>"><%=request.id%></a></td>
+
+		<td><%= link_to request.id, user_request_jobs_path(@user, request) %></td>
 		<td>
 			<ul>
 				<%request.job_titles.each do |title|%>
@@ -30,14 +25,14 @@
 		</td>
 		<td>
 			<ul>
-				<%request.parameters.where(exclude: false).each do |parameter|%>
+				<%request.includes.each do |parameter|%>
 					<li><%=parameter.criteria%></li>
 				<%end%>
 			</ul>
 		</td>
 		<td>
 			<ul>
-				<%request.parameters.where(exclude: true).each do |parameter|%>
+				<%request.excludes.each do |parameter|%>
 					<li><%=parameter.criteria%></li>
 				<%end%>
 			</ul>

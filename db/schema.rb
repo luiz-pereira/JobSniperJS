@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_29_012215) do
+ActiveRecord::Schema.define(version: 2019_08_02_143018) do
+
+  create_table "excludes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "request_id"
+    t.string "criteria"
+  end
+
+  create_table "includes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "request_id"
+    t.string "criteria"
+  end
 
   create_table "job_titles", force: :cascade do |t|
     t.string "job_title"
@@ -51,14 +65,6 @@ ActiveRecord::Schema.define(version: 2019_06_29_012215) do
     t.string "province"
     t.string "country"
     t.integer "request_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "parameters", force: :cascade do |t|
-    t.integer "request_id"
-    t.string "criteria"
-    t.boolean "exclude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
