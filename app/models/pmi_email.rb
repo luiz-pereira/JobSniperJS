@@ -1,0 +1,2 @@
+class PmiEmail < ApplicationRecord
+end

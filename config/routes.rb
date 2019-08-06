@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pmi_emails
 	resources :users do
 		resources :requests do
 			resources :jobs, only: [:index]

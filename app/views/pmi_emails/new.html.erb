@@ -1,0 +1,61 @@
+<div class="d-flex justify-content-center">
+	<%= form_for @pmi_email do |f|%>
+		<div class='row justify-content-center'>
+			<div class='col-md-3'>
+				<%= f.label :name %>
+				<%= f.text_field :name, class:'form-control', required: true %>
+			</div>
+			<div class='col-md-3 justify-content-center'>
+				<%= f.label :position %>
+				<%= f.text_field :position, class:'form-control', required: true %>
+			</div>
+		</div>
+		<div class='row justify-content-center'>
+			<div class='col-md-3'>
+				<%= f.label :phone %>
+				<%= f.telephone_field :phone, class:'form-control' %>
+			</div>
+			<div class='col-md-3'>
+				<%= f.label :mobile %>
+				<%= f.telephone_field :mobile, class:'form-control', required: true %>
+			</div>
+		</div>
+		<div class='row justify-content-center'>
+			<div class='col-md-3'>
+				<%= f.label :email %>
+				<%= f.email_field :email, class:'form-control', required: true %>
+			</div>
+			<div class='col-md-3'>
+				<%= f.label :website %>
+				<%= f.url_field :website, class:'form-control' %>
+			</div>
+		</div>
+		<br>
+		<div class='row justify-content-center'>
+			<div class='col-md-2'>
+				<%= f.label :twitter %>
+				<%= f.text_field :twitter, class:'form-control' %>
+			</div>
+			<div class='col-md-2'>
+				<%= f.label :linkedin %>
+				<%= f.text_field :linkedin, class:'form-control' %>
+			</div>
+			<div class='col-md-2'>
+				<%= f.label :instagram %>
+				<%= f.text_field :instagram, class:'form-control' %>
+			</div>
+			<div class='col-md-2'>
+				<%= f.label :facebook %>
+				<%= f.text_field :facebook, class:'form-control' %>
+			</div>
+			<div class='col-md-2'>
+				<%= f.label :youtube %>
+				<%= f.text_field :youtube, class:'form-control' %>
+			</div>
+		</div>
+		<br>
+		<br>
+		<%= f.submit "Create Signature", class:'btn btn-primary' %>
+	<% end %>
+</div>
+

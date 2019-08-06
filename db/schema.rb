@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_02_143018) do
+ActiveRecord::Schema.define(version: 2019_08_06_202301) do
 
   create_table "excludes", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -67,6 +67,22 @@ ActiveRecord::Schema.define(version: 2019_08_02_143018) do
     t.integer "request_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "pmi_emails", force: :cascade do |t|
+    t.string "email"
+    t.string "name"
+    t.string "position"
+    t.string "phone"
+    t.string "mobile"
+    t.string "twitter"
+    t.string "instagram"
+    t.string "facebook"
+    t.string "youtube"
+    t.string "linkedin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "website"
   end
 
   create_table "requests", force: :cascade do |t|
