@@ -19,8 +19,8 @@
 						<li class="nav-item active">
 							<%= link_to 'Home', root_path, class: "nav-link" %>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Sign Up</a>
+						<li class="nav-item active">
+							<a class="nav-link" href=<%= new_user_path %>>Sign Up</a>
 						</li>
 					</ul>
 				</div>
@@ -33,10 +33,10 @@
 				<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item active">
-							<%= link_to 'Requests', user_path(current_user), class: "nav-link" %>
+							<%= link_to 'Requests', user_path(current_user), class: "nav-link active" %>
 						</li>
 						<li class="nav-item">
-							<%= link_to "Log out", logout_path, method: :delete %>
+							<%= link_to "Log out", logout_path, method: :delete, class: 'nav-link active' %>
 						</li>
 					</ul>
 				</div>

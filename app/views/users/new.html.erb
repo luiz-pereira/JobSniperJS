@@ -1,5 +1,13 @@
 <%= stylesheet_link_tag "signup" %>
 
-<%= form_for @user, class:"form-signin" do |f| %>
-	<%= render partial: '/users/form', locals: {f: f} %>
+<% if @user.errors %>
+	<% @user.errors.full_messages.each do |error|%>
+		<div class="alert alert-danger"><%= error %></div>
+	<% end  %>
+<% end %>
+
+<%= image_tag 'Rectangle', id: 'blue-wave' %>
+
+<%= form_for @user, class:"form-signin col-sm-1" do |f| %>
+	<%= render partial: '/users/form', locals: {f: f, submit_label: "Create User"} %>
 <% end %>

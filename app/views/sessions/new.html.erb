@@ -8,5 +8,5 @@
 <%= flash[:error] %>
 
 <%= form_for @user, url: '/login', class:"form-signin" do |f| %>
-	<%= render partial: '/users/form', locals: {f: f} %>
+	<%= render partial: '/users/form', locals: {f: f, submit_label: "Log In"} %>
 <% end %>
