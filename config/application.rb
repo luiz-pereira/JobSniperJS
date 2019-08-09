@@ -1,10 +1,17 @@
 require_relative 'boot'
 
 require 'rails/all'
+require "google/cloud/logging"
+require "google/cloud/debugger"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+Google::Cloud.configure do |config|
+  config.logging.project_id = "job-sniper"
+  config.logging.keyfile    = "Job Sniper-dd1ffec55ab9.json"
+end
+
 
 module JobSniper
 	class Application < Rails::Application

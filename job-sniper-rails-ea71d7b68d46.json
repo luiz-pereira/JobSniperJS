@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "job-sniper-rails",
+  "private_key_id": "ea71d7b68d4645be5b0f01baad9af5a5a758e3f1",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCk2uKKEhnlzFrX\nK3kDKvfmeTRKsL5AxNcL3sg5JZMHJbi5w/whBYO0s+trYAXU4JI+eRpd6sY0Qbhx\nPGwFRZCSZCCvT8t6iSU6o4NArhNXp0ZerSnrYwMlv6ipuPC/oWLA2RN1L52qbzAo\nO7FMibn1YpBG2wntc+MCJGp0rkAyjCFSHSTyrY0AwiBFJn3VFyC4MpnJl7hK72br\nSsBZgG+hhPzs9Ht2hGcO1xEqdiWjA4gZLoRYoPDmLoVDkAoHkwjHVR0ir5BhFJu9\n+aUzMz8aAnTDvE5LIqigpDJXb3/7UdMlaWmTTmkr4YpNtlNHbel3M5dGlpXBLfwa\nmE6CFtpRAgMBAAECggEAAtS7MJCtYwzMh87IXwd+LrYYwbpZpww2Tu7wSGpytRwG\nyUJiRlklVQ1kquExEnH5kvLykueu6AtzoNavOnMyj5ACf2427eOUaQaRMMN4g7Ak\nwUgXHOKkNYIOQf1h/YF2jB4iM1hKLGjIxn0Zbyl7kPkkhgH5kHtFrAYO8bJjGfcW\n481G0B5HqVt4lzRa6g0VBbSFB6x+16JyWB6J727D7ecIZ7brFSKyvqcTlQGxcvl4\nnt4Tsw1RwWOaVYN+2EYX6sH0W75tQ6XUUhSkasgXpgKzQPnGMIz4klP+z6DsiAyM\n09RoKz3bgQYc96J6tSad4cCq0vd4KgSyutun7kI/AQKBgQDYs2pVKvLtMvmLqfkL\nEN2jSUxq1PGwxwwbFs0nYNo5tursv8LeADccoM73/vop6oyssdaSPxThBpTzdt2J\nyEojArhHnsmySAD1vGfgQRwNcNmwtro2UqUNzIhl2gUixYVWH8+GCEbgvkUtvqEH\nYVUtth7+o1GrqoZyU1fKuKP1AQKBgQDCwHfJR1TE4NFkeJ1n+69JeheljMoxZXvU\n+kp9hnx5LhjZSVci7i8tt7NXhQPrTgce4malDwIeWwEsNYNZE2lwVFDVacm+v1V6\nm9t/YvDIPBvlfbnZdQGtsniLl0dwn0D+a875as7zk/R6hzgig0mz1jlFpyP1c066\nFozdJN1VUQKBgQCeieyycKCXzyJo/qq4YNd2XertgettBMMjknP3alFdxihrmwPr\nPUcUx8WEBGRrhDD1K4qrJkGVPCZ/VKhR5Fnw8U13AIHZz/n7zqJEm/31C2oIcjcc\nBSzCQrBLq8z0GoQpdU5zZdzNEgc0p3HSH3Cc59AXRc87g5+nRrhFFP7HAQKBgASo\nE3UllnpKodcUJzdYRj2shKo5ro/1zDswbN2JfKptFr0DSukT5t7h+JDMJmbW68aq\nRSgHLtbI+EM1WFml5CyCZ5hiuicsbf/LgDkQhY9UGJqpIet4J70eelFkIZooxKYQ\nr9c43Y/nZr4TQ51XpEh/g8kNkQeKZUR/y4hyHDSxAoGAbtQtZlVbEP7F1ckq3FXy\nKgpZHRVft2aSIc9x5pFmXstt/eDfRmJ3U/jnmsYaPVi+h4I38CRZo9DnO25ISLY8\ndVWPe75ar/li5vSvYqTYHefibTTkPQVZrHJ23QBvBvUSGVudOxEy+uX2ijpVZiPA\nZxpABer+Pn3Sk+wazt9sS9M=\n-----END PRIVATE KEY-----\n",
+  "client_email": "luizfper@job-sniper-rails.iam.gserviceaccount.com",
+  "client_id": "108877019201749242857",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/luizfper%40job-sniper-rails.iam.gserviceaccount.com"
+}

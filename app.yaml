@@ -1,0 +1,10 @@
+entrypoint: bundle exec rackup --port $PORT
+env: flex
+runtime: ruby
+
+env_variables:
+  SECRET_KEY_BASE: 8fc8392914ec5f3c094d86950394cac15f40efa5b55115b0ab63a3f3362e4bb26e44fde7e7fd0f3ab4126f4778c182cf8c345848dd4b60f01674a5372ef22637
+
+beta_settings:
+  cloud_sql_instances: job-sniper-rails:us-east4:job-sniper-rails
+

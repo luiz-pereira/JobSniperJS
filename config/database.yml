@@ -22,7 +22,9 @@ test:
 
 production:
   adapter: mysql2
-  encoding: utf8
-  database: jobsniper_production
   pool: 5
-  socket: /tmp/mysql.sock
+  timeout: 5000
+  username: luizfper
+  password: Mysql-1346
+  database: jobsniper_rails_production
+  socket: /cloudsql/job-sniper-rails:us-east4:job-sniper-rails
