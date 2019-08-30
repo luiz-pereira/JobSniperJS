@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_06_202301) do
+ActiveRecord::Schema.define(version: 2019_08_30_183806) do
 
   create_table "excludes", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -26,15 +26,7 @@ ActiveRecord::Schema.define(version: 2019_08_06_202301) do
     t.string "criteria"
   end
 
-  create_table "job_titles", force: :cascade do |t|
-    t.string "job_title"
-    t.integer "request_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "job_titles_selections", force: :cascade do |t|
-    t.integer "user_id"
     t.string "title_select"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -91,6 +83,7 @@ ActiveRecord::Schema.define(version: 2019_08_06_202301) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "job_title"
   end
 
   create_table "users", force: :cascade do |t|
@@ -99,6 +92,8 @@ ActiveRecord::Schema.define(version: 2019_08_06_202301) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.boolean "linkedin"
   end
 
 end

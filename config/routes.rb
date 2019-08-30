@@ -13,9 +13,10 @@ Rails.application.routes.draw do
 
 	root 'static#home'
 
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
-	get 'logout' => 'sessions#destroy'
+  get '/login' => "session#new"
+	post '/login' => "session#create"
+	get '/logout' => "session#destroy"
+	get '/auth/linkedin/callback' => "session#create"
 
 	post '/users/job_titles_selections' => 'users#delete_job_title_selection'
 

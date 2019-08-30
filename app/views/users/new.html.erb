@@ -1,13 +1,29 @@
-<%= stylesheet_link_tag "signup" %>
-
-<% if @user.errors %>
-	<% @user.errors.full_messages.each do |error|%>
-		<div class="alert alert-danger"><%= error %></div>
-	<% end  %>
+<% @user.errors.full_messages.each do |erro|%>
+	<div class='alert alert-danger'>
+		<%= erro %>
+	</div>
 <% end %>
 
-<%= image_tag 'Rectangle', id: 'blue-wave' %>
 
-<%= form_for @user, class:"form-signin col-sm-1" do |f| %>
-	<%= render partial: '/users/form', locals: {f: f, submit_label: "Create User"} %>
-<% end %>
+
+<div class="container col-md-4 col-md-offset-4 centered">
+	<%= form_for @user, html: {class: 'text-center border border-light p-5'} do |f| %>
+			<p class="h4 mb-4 ">Sign up</p>
+			<%= f.text_field :name, class: 'form-control mb-4', placeholder: "Name", required: true %>
+			<%= f.email_field :email, class: 'form-control mb-4', placeholder: "E-mail", required: true %>
+			<%= f.password_field :password, class: 'form-control mb-4', placeholder: "Password", required: true %>
+			<%= f.submit "Sign up", class: 'btn btn-info my-4 btn-block'%>
+
+			<p>or sign up with:</p>
+
+			<%= link_to image_tag('signup/LI-Logo.png', height:'35px'), '/auth/linkedin' %>
+
+			<hr>
+
+			<!-- Terms of service -->
+			<p>By clicking
+					<em>Sign up</em> you agree to our
+					<a href="" target="_blank">terms of service</a>
+
+	<% end %>
+</div>

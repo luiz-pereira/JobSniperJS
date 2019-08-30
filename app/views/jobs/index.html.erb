@@ -1,27 +1,26 @@
-<%@titles.each do |title|%>
-	<h1><%=title.job_title%></h1>
-	<table style="width:100%" class='table table-sm'>
-		<tr>
-			<th>id</th>
-			<th>Source</th>
-			<th>Title</th>
-			<th>Company</th>
-			<th>Type</th>
-			<th>City</th>
-			<th>Summary</th>
-			<th>link</th>
-		</tr>
-			<%@jobs.where(criteria: title.job_title).each do |job|%>
-				<tr>
-					<td><%=job.id%>. </td>
-					<td><%=job.source%></td>
-					<td><%=job.title%></td>
-					<td><%=job.company%></td>
-					<td><%=job.tipe%></td>
-					<td><%=job.city%></td>
-					<td><%=job.summary%></td>
-					<td><a href="<%=job.link%>" target="_blank">Link to the position</a></td>
-				</tr>
-			<%end%>
-	</table>
-<%end%>
+
+<h1><%=@title%></h1>
+<table style="width:100%" class='table table-sm'>
+	<tr>
+		<th>id</th>
+		<th>Source</th>
+		<th>Title</th>
+		<th>Company</th>
+		<th>Type</th>
+		<th>City</th>
+		<th>Summary</th>
+		<th>link</th>
+	</tr>
+		<%@jobs.each do |job|%>
+			<tr>
+				<td><%=job.id%>. </td>
+				<td><%=job.source%></td>
+				<td><%=job.title%></td>
+				<td><%=job.company%></td>
+				<td><%=job.tipe%></td>
+				<td><%=job.city%></td>
+				<td><%=job.summary%></td>
+				<td><a href="<%=job.link%>" target="_blank">Link to the position</a></td>
+			</tr>
+		<%end%>
+</table>

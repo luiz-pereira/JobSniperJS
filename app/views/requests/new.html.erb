@@ -9,13 +9,8 @@
 		<div class='text-center'>
 			<%= f.fields_for :job_titles do |jt| %>
 				<%= jt.label "Job titles"%><br>
-				<%= jt.text_field :title_select, placeholder: "new job title" %>
-				<%= jt.submit "Add", class:'btn-sm btn-primary'%>
-				<div class="d-flex justify-content-center input-group">
-					<%= jt.collection_select :selected_job_titles, @user.job_titles_selections, :id, :title_select, {prompt: false}, {:multiple => true, class: "text-center col-md-2 form-control"}%>
-					<span class="my-auto input-group-btn">
-						<%= jt.submit "Delete Selected", :class => 'btn-sm btn-outline-danger' %>
-					</span>
+					<div class="d-flex justify-content-center input-group">
+					<%= jt.collection_select :selected_job_titles, JobTitlesSelection.all, :id, :title_select, {prompt: false, include_blank: 'Select an option to limit results'}, {class: "text-center col-md-2 form-control"}%>
 				</div>
 			<% end %>
 

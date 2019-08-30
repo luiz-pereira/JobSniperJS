@@ -1,3 +1,4 @@
 class JobTitlesSelection < ApplicationRecord
-	belongs_to :user
+	validates :title_select, uniqueness: true
+
 end
