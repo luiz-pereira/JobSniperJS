@@ -1,5 +1,9 @@
 class PmiEmailsController < ApplicationController
-	layout false, only: [:show]
+	layout false
+
+	def index
+		redirect_to new_pmi_email_path
+	end
 
 	def new
 		@pmi_email = PmiEmail.new
@@ -17,7 +21,7 @@ class PmiEmailsController < ApplicationController
 private
 
 	def pmi_email_params
-		params.require(:pmi_email).permit(:name, :position, :phone, :mobile, :email, :website, :twitter, :linkedin, :instagram, :facebook, :youtube)
+		params.require(:pmi_email).permit(:name, :credentials, :position, :mobile, :email)
 	end
 
 

@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
 	<style>
-		td{
-			font-family: 'Tahoma';
-			font-size: 14px;
-			padding-top: 2px;
+		body{
+			font-family: 'Open Sans', sans-serif;
+			font-size: 12px;
+			margin-bottom: 2px;
 		}
-		.phone{
-			font-size: 14px;
+		#name {
+			font-style: italic;
+			font-weight: bold;
 		}
 		img{
 			padding-right: 2px;
 		}
 		#line{
 			border-left: solid 4px #70B3FA;padding-left:25px;"
-
 		}
-
 		a{
 			padding-right: 5px;
 		}
@@ -34,43 +37,28 @@
 				<table cellpadding="0" cellspacing="0" width="100%">
 					<tbody>
 						<tr>
-								<td style="font-size:16px;font-weight:bold;text-transform:capitalize;padding-bottom:5px"><%= @pmi_email.name %> | <%= @pmi_email.position %> </td>
-						</tr>
-						<tr>
-								<td class='phone'>
-									<% unless @pmi_email.phone.empty? %>
-										<a href=<%= "tel:#{@pmi_email.phone}" %>><%= image_tag 'phone', height:'12' %><%= number_to_phone(@pmi_email.phone, area_code: true) %></a>|
-									<% end %>
-									<%= image_tag 'iphone', height:'12' %><a href=<%= "tel:#{@pmi_email.mobile}"%>><%= number_to_phone(@pmi_email.mobile, area_code: true)%></a>
-								</td>
-						</tr>
-						<tr>
-							<td><%= image_tag 'email', height:'8' %><a href=<%= "mailto:#{@pmi_email.email}"%>> <%=@pmi_email.email%></a>
-							<% unless @pmi_email.website.empty? %>
-									| <%= image_tag 'url', height:'10' %>
-									<a href=<%= @pmi_email.website %>>
-										<%= @pmi_email.website %>
-									</a>
+							<td id='name'><%= @pmi_email.name %>
+								<% unless @pmi_email.credentials.empty? %>
+									, <%= @pmi_email.credentials %> </td>
 								<% end %>
+						</tr>
+						<tr>
+								<td><%= @pmi_email.position %> | <%= @pmi_email.position %> </td>
+						</tr>
+						<tr>
+							<td>
+								<%= image_tag 'iphone', height:'12' %><a href=<%= "tel:#{@pmi_email.mobile}"%>><%= number_to_phone(@pmi_email.mobile, area_code: true)%></a>
 							</td>
 						</tr>
 						<tr>
+							<td><%= image_tag 'email', height:'8' %><a href=<%= "mailto:#{@pmi_email.email}"%>> <%=@pmi_email.email%></a><td>
+						</tr>
+						<tr>
 							<td style="padding-top:15px; text-align:left;" width="100%">
-								<% unless @pmi_email.twitter.empty? %>
-									<a href=<%= "https://twitter.com/#{@pmi_email.twitter}"%>> <%= image_tag 'twitter' %></a>
-								<% end %>
-								<% unless @pmi_email.linkedin.empty? %>
-									<a href=<%= "https://linkedin.com/in/#{@pmi_email.linkedin}"%>> <%= image_tag 'linkedin'%></a>
-								<% end %>
-								<% unless @pmi_email.instagram.empty? %>
-									<a href=<%= "https://instagram.com/#{@pmi_email.instagram}"%>> <%= image_tag 'instagram'%></a>
-								<% end %>
-								<% unless @pmi_email.facebook.empty? %>
-									<a href=<%= "https://facebook.com/#{@pmi_email.facebook}"%>> <%= image_tag 'facebook'%></a>
-								<% end %>
-								<% unless @pmi_email.youtube.empty? %>
-									<a href=<%= "https://youtube.com/#{@pmi_email.youtube}"%>> <%= image_tag 'youtube'%></a>
-								<% end %>
+								<a href=<%= "https://linkedin.com/in/"%>> <%= image_tag 'linkedin'%></a>
+								<a href=<%= "https://twitter.com/"%>> <%= image_tag 'twitter' %></a>
+								<a href=<%= "https://facebook.com/"%>> <%= image_tag 'facebook'%></a>
+								<a href=<%= "https://instagram.com/"%>> <%= image_tag 'instagram'%></a>
 							</td>
 						</tr>
 					</tbody>

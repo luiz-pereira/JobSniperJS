@@ -1,61 +1,59 @@
-<div class="d-flex justify-content-center">
-	<%= form_for @pmi_email do |f|%>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+<style>
+	body{
+		font-family: 'Open Sans', sans-serif;
+	}
+</style>
+
+<%= image_tag 'pmi_email/PMI_TORONTO_logo_blue.png'%>
+<%= image_tag 'pmi_email/Topwaive.png', class: 'float-right'%>
+<br>
+<br>
+
+
+
+<div class='container card border-0 '>
+	<%= image_tag 'pmi_email/cardform.png', class: 'col-sm-8 card-img mx-auto d-block', size: '420'%>
+		<%= form_for @pmi_email, html: {class: 'card-img-overlay text-light'} do |f|%>
+		<%= image_tag 'pmi_email/Person.png', class: 'mx-auto d-block' %>
+		<br>
 		<div class='row justify-content-center'>
 			<div class='col-md-3'>
-				<%= f.label :name %>
-				<%= f.text_field :name, class:'form-control', required: true %>
+				<%= f.text_field :name, class:'form-control', required: true, placeholder: 'First and last name' %>
 			</div>
+			<div class='col-md-3'>
+
+				<%= f.text_field :credentials, class:'form-control', placeholder: 'Credentials - up to three' %>
+			</div>
+		</div>
+		<br>
+		<div class='row justify-content-center'>
 			<div class='col-md-3 justify-content-center'>
-				<%= f.label :position %>
-				<%= f.text_field :position, class:'form-control', required: true %>
+				<%= f.text_field :position, class:'form-control', required: true, placeholder: 'Position name' %>
 			</div>
+			<div class='col-md-3'>
+				<%= f.email_field :email, class:'form-control', required: true, placeholder: 'email' %>
+			</div>
+
+
 		</div>
+		<br>
+
 		<div class='row justify-content-center'>
 			<div class='col-md-3'>
-				<%= f.label :phone %>
-				<%= f.telephone_field :phone, class:'form-control' %>
-			</div>
-			<div class='col-md-3'>
-				<%= f.label :mobile %>
-				<%= f.telephone_field :mobile, class:'form-control', required: true %>
-			</div>
-		</div>
-		<div class='row justify-content-center'>
-			<div class='col-md-3'>
-				<%= f.label :email %>
-				<%= f.email_field :email, class:'form-control', required: true %>
-			</div>
-			<div class='col-md-3'>
-				<%= f.label :website %>
-				<%= f.url_field :website, class:'form-control' %>
+				<%= f.telephone_field :mobile, class:'form-control', placeholder: 'Mobile number (optional)' %>
 			</div>
 		</div>
 		<br>
-		<div class='row justify-content-center'>
-			<div class='col-md-2'>
-				<%= f.label :twitter %>
-				<%= f.text_field :twitter, class:'form-control' %>
-			</div>
-			<div class='col-md-2'>
-				<%= f.label :linkedin %>
-				<%= f.text_field :linkedin, class:'form-control' %>
-			</div>
-			<div class='col-md-2'>
-				<%= f.label :instagram %>
-				<%= f.text_field :instagram, class:'form-control' %>
-			</div>
-			<div class='col-md-2'>
-				<%= f.label :facebook %>
-				<%= f.text_field :facebook, class:'form-control' %>
-			</div>
-			<div class='col-md-2'>
-				<%= f.label :youtube %>
-				<%= f.text_field :youtube, class:'form-control' %>
-			</div>
-		</div>
-		<br>
-		<br>
-		<%= f.submit "Create Signature", class:'btn btn-primary' %>
+
+		<%= f.submit "Create Signature", class:'mx-auto d-block btn btn-primary' %>
+
 	<% end %>
 </div>
+
 
