@@ -1,69 +1,58 @@
-<!DOCTYPE html>
-<head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-
-	<style>
-		body{
-			font-family: 'Open Sans', sans-serif;
-			font-size: 12px;
-			margin-bottom: 2px;
-		}
-		#name {
-			font-style: italic;
-			font-weight: bold;
-		}
-		img{
-			padding-right: 2px;
-		}
-		#line{
-			border-left: solid 4px #70B3FA;padding-left:25px;"
-		}
-		a{
-			padding-right: 5px;
-		}
-	</style>
-
-</head>
 <br>
 <br>
-<table>
-	<tbody>
-		<tr>
-			<td width="120"><%= link_to (image_tag 'pmi-logo.png', id:'logo', alt:"logo", height:"80"), "http://pmitoronto.ca/"%></td>
-			<td id='line' width="450">
-				<table cellpadding="0" cellspacing="0" width="100%">
-					<tbody>
-						<tr>
-							<td id='name'><%= @pmi_email.name %>
-								<% unless @pmi_email.credentials.empty? %>
-									, <%= @pmi_email.credentials %> </td>
-								<% end %>
-						</tr>
-						<tr>
-								<td><%= @pmi_email.position %> | <%= @pmi_email.position %> </td>
-						</tr>
-						<tr>
-							<td>
-								<%= image_tag 'iphone', height:'12' %><a href=<%= "tel:#{@pmi_email.mobile}"%>><%= number_to_phone(@pmi_email.mobile, area_code: true)%></a>
-							</td>
-						</tr>
-						<tr>
-							<td><%= image_tag 'email', height:'8' %><a href=<%= "mailto:#{@pmi_email.email}"%>> <%=@pmi_email.email%></a><td>
-						</tr>
-						<tr>
-							<td style="padding-top:15px; text-align:left;" width="100%">
-								<a href=<%= "https://linkedin.com/in/"%>> <%= image_tag 'linkedin'%></a>
-								<a href=<%= "https://twitter.com/"%>> <%= image_tag 'twitter' %></a>
-								<a href=<%= "https://facebook.com/"%>> <%= image_tag 'facebook'%></a>
-								<a href=<%= "https://instagram.com/"%>> <%= image_tag 'instagram'%></a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</td>
-		</tr>
-	</tbody>
-</table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class='container-fluid'>
+	<h3 class='textsign'>Hey, check your PMI email signature.</h3>
+</div>
+<br>
+<br>
+<br>
+<div class='container'>
+	<%= render partial: 'signature' %>
+	<br>
+ 	<input type="button" value="Modify" onclick="history.back()" class='text-center mx-auto btn btn-primary'>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+<div class='container-fluid'>
+	<h4 class='textsign'>Now that you have your PMI email signature, copy it and follow these few steps to make it to work</h4>
+</div>
+<br>
+<br>
+<div class='container-fluid'>
+	<div class = 'row'>
+		<div class='col'>
+			<h5 class='textsign'>If you have a PMI email:</h5>
+			<p class='textsign col'>1. In Gmail, click the Gear icon, then click 'Settings'<br>
+				2. In the "Signature" section, paste (CTRL+V) your signature in the box<br>
+				3. Select the box below to remove the "--" line that precedes it<br>
+				4. At the bottom of the page, click Save Changes
+			</p>
+		</div>
+		<div class='col'>
+			<h5 class='textsign'>If you have a PMI email:</h5>
+			<p class='textsign col'>1. In Gmail, click the Gear icon, then click 'Settings'<br>
+				2. Click the tab that says 'Advanced'<br>
+				3. Click 'Enable' on the 'Canned Responses' prompt and save changes<br>
+				4. Start a new email by hitting 'Compose' in the upper left-hand corner of your inbox<br>
+				5. Paste (CTRL+V) the email signature<br>
+				6. Click the three dots icon on the bottom right-hand corner of the compose window, hover over 'Canned responses,' 'Save draft as template,' and then click 'Save as new template'<br>
+				7. Name your canned response<br>
+				8. When replying, forwarding or creating an email, click the three dots icon on the bottom right-hand corner of the email window, hover over 'Canned responses,' then click on the canned response name<br>
+				9. After the signature is pasted, add your recipient and click 'Send'
+			</p>
+		</div>
+	</div>
+</div>
+

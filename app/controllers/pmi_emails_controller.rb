@@ -1,5 +1,5 @@
 class PmiEmailsController < ApplicationController
-	layout false
+
 
 	def index
 		redirect_to new_pmi_email_path

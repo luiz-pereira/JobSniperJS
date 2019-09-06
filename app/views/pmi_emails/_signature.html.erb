@@ -1,0 +1,43 @@
+
+<table>
+	<tbody>
+		<tr>
+			<td width="120"><%= link_to (image_tag 'pmi-logo.png', id:'logo', alt:"logo", height:"70"), "http://pmitoronto.ca/"%></td>
+			<td id='line' width="450">
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<tbody>
+						<tr>
+							<td id='name'><%= @pmi_email.name %>
+								<% unless @pmi_email.credentials.empty? %>
+									, <%= @pmi_email.credentials %> </td>
+								<% end %>
+						</tr>
+						<tr>
+								<td class='position'><%= @pmi_email.position %> | PMI Toronto Chapter </td>
+						</tr>
+						<tr>
+							<td class = 'email'>
+								E-mail: <a href=<%= "mailto:#{@pmi_email.email}"%>> <%=@pmi_email.email%></a> | Website: <a href="http://pmitoronto.ca/">pmitoronto.ca</a>
+							<td>
+						</tr>
+						<% unless @pmi_email.mobile.empty? %>
+							<tr>
+								<td class='iphone'>
+									<%= image_tag 'iphone', height:'22' %><a class='iphone' href=<%= "tel:#{@pmi_email.mobile}"%>><%= number_to_phone(@pmi_email.mobile, area_code: true)%></a>
+								</td>
+							</tr>
+						<tr>
+						<% end %>
+							<td style="text-align:left;" width="100%">
+								<a href=<%= "https://www.linkedin.com/company/pmi-toronto/"%>> <%= image_tag 'linkedin', height: '24', class: 'socialicons'%></a>
+								<a href=<%= "https://twitter.com/PMITORONTO"%>> <%= image_tag 'twitter', height: '24', class: 'socialicons'%></a>
+								<a href=<%= "https://www.facebook.com/PMITorontoChapter/"%>> <%= image_tag 'facebook', height: '24', class: 'socialicons'%></a>
+								<a href=<%= "https://www.instagram.com/pmitoronto/"%>> <%= image_tag 'instagram', height: '24', class: 'socialicons'%></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
