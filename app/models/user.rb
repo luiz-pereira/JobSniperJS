@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 	validates :email, uniqueness: true
+	validates :name, presence: true
 	has_secure_password
 
 	has_many :requests, :dependent => :destroy
@@ -13,7 +14,7 @@ class User < ApplicationRecord
 
 	def create_username
 		i = 0
-		username = self.name.split(' ').map(&:downcase).join('')
+		self.name.include?(' ') ? (username = self.name.split(' ').map(&:downcase).join('')) : (username = self.name.downcase)
 		while User.find_by username: username
 			i +=1
 			username = username + i.to_s
