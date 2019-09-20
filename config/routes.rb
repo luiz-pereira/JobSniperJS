@@ -18,6 +18,9 @@ Rails.application.routes.draw do
 	get '/logout' => "session#destroy"
 	get '/auth/linkedin/callback' => "session#create"
 
+	# teste para o json
+	get '/requests/:request_id/jobs/json' => "jobs#get_json"
+
 	post '/users/job_titles_selections' => 'users#delete_job_title_selection'
 
 end

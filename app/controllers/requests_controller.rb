@@ -61,7 +61,6 @@ class RequestsController < ApplicationController
 	def get_jobs(request)
 		@user = current_user
 		@request = request
-		binding.pry
 		@title = @request.job_title || ''
 		@include = @request.includes.map(&:criteria)
 		@exclude = @request.excludes.map(&:criteria)

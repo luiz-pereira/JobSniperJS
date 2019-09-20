@@ -7,4 +7,10 @@ class JobsController < ApplicationController
 		@jobs = @request.jobs.order(source: :desc)
 	end
 
+	def get_json
+		@request = Request.find(params[:request_id])
+		@jobs = @request.jobs.order(source: :desc)
+		render json: @jobs
+	end
+
 end
