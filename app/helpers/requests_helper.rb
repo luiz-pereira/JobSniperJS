@@ -41,7 +41,7 @@ module RequestsHelper
 		end
 
 		def get_jobs_td (attribs)
-			params[:page] = "0"
+			attribs[:page] = "0"
 			doc = Nokogiri::HTML(open(format_link_td(attribs)))
 			get_data_td(doc)
 		end
