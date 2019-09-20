@@ -40,9 +40,9 @@ module RequestsHelper
 			end
 		end
 
-		def get_jobs_td (params)
+		def get_jobs_td (attribs)
 			params[:page] = "0"
-			doc = Nokogiri::HTML(open(format_link_td(params)))
+			doc = Nokogiri::HTML(open(format_link_td(attribs)))
 			get_data_td(doc)
 		end
 
