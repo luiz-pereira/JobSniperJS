@@ -42,7 +42,7 @@ module RequestsHelper
 
 		def get_jobs_td (attribs)
 			attribs[:page] = "0"
-			doc = Nokogiri::HTML(open(format_link_td(attribs)))
+			doc = Nokogiri::HTML(open(format_link_td(attribs),"User-Agent" => "Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.2.3) Gecko/20100401 Firefox/3.6.3"))
 			get_data_td(doc)
 		end
 

@@ -68,8 +68,6 @@ gem "mysql2", "~> 0.5.2"
 
 gem "appengine", "~> 0.5.0"
 
-gem "google-cloud-storage", "~> 1.19"
-
 gem "stackdriver", "~> 0.15.4"
 
 gem "omniauth", "~> 1.9"
