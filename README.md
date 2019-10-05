@@ -1,16 +1,16 @@
-# JobSniperRails
+# JobSniperJS
 JobSniper converted to Rails
-
-# luizfper.github.io
 
 The idea of this webapp is to help the user go searching through thousands of job posts in indeed.com with better queries and keep track of different requests.
 
 Hopefully, it will help short-list the postings that more closely suits the user, by removing the ones that doesn't conform to the stated requests.
 
+(this) is the JS version of the app. I'll try to include nice JS features.
+
+
 - The application will store job postings linked to an user's request
 - each user can see all their requests and update with new information from indeed
 - a link to the actual job posting is provided
-
 
 Views:
 - signup: simple form for creating a customer's account. contains e-mail and password
@@ -33,9 +33,7 @@ controllers:
 
 Other things:
 
-- I will try to get the website alive through github pages.
-- if i have time, i'll try to use azure or google for the database
-
+- The website is alive in heroku (www.jobsniper.ca).
 
 install:
 -run bundle install

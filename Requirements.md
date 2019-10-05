@@ -1,0 +1,7 @@
+- Do not use remote: true in this application.
+- Must translate JSON responses from your Rails app into JavaScript Model Objects (Classes)`I will link each request to a JS class`
+	- The Model Objects must have at least one method on the prototype `I will use it to update the request in an asynchronous format`
+- Must render at least one index page (index resource - 'list of things') via JavaScript and an Active Model Serialization JSON Backend. `list requests`
+- Must render at least one show page (show resource - 'one specific thing') via JavaScript and an Active Model Serialization JSON Backend. `list jobs`
+- Your Rails application must dynamically render on the page at least one serialized 'has_many' relationship through JSON using JavaScript. ` I will use it on the Requests index page to show the job titles`
+- Must use your Rails application to render a form for creating a resource that is submitted dynamically and displayed through JavaScript and JSON without a page refresh. `create job titles and create includes and excludes`
