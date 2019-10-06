@@ -10,9 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *= require_tree .
- *= require_self
- *= require 'request_new'
- *= require 'request_new_base'
+ *= require home
+ *= require signup
+ *= require style
+ *= require user_home
  */
 	@import "bootstrap";
 
