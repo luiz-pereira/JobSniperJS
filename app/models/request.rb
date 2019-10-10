@@ -4,4 +4,6 @@ class Request < ApplicationRecord
 	has_many :excludes, :dependent => :destroy
 	has_many :includes, :dependent => :destroy
 	has_many :locations, :dependent => :destroy
+	has_many :job_titles, :dependent => :destroy
+
 end

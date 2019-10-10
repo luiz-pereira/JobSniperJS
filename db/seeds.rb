@@ -12,10 +12,12 @@ Request.delete_all
 Job.delete_all
 JobTitlesSelection.delete_all
 
-JobTitlesSelection.create({title_select: "Project Manager"})
-JobTitlesSelection.create({title_select: "Project Coordinator"})
-JobTitlesSelection.create({title_select: "Project Control Officer"})
-JobTitlesSelection.create({title_select: "Project Analyst"})
-JobTitlesSelection.create({title_select: "Analyst"})
-JobTitlesSelection.create({title_select: "Research"})
-JobTitlesSelection.create({title_select: "Product Manager"})
+StandardJobTitle.create({job_title: "Project Manager"})
+StandardJobTitle.create({job_title: "Project Coordinator"})
+StandardJobTitle.create({job_title: "Project Control Officer"})
+StandardJobTitle.create({job_title: "Project Analyst"})
+StandardJobTitle.create({job_title: "Investment Analyst"})
+StandardJobTitle.create({job_title: "Analyst"})
+StandardJobTitle.create({job_title: "Research"})
+StandardJobTitle.create({job_title: "Product Manager"})
+

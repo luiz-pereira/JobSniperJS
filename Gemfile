@@ -76,3 +76,13 @@ gem "dotenv-rails"
 gem "pg", "~> 1.1"
 
 gem "rspec-rails"
+
+gem "jquery-rails", "~> 4.3"
+
+gem "jquery-ui-rails", "~> 6.0"
+
+gem "select2-rails", "~> 4.0"
+
+gem "popper_js", "~> 1.14"
+
+gem "active_model_serializers", "~> 0.10.10"

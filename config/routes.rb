@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  resources :pmi_emails
+	resources :pmi_emails
+
 	resources :users do
 		resources :requests do
 			resources :jobs, only: [:index]
 		end
 	end
+
 
 	resources :requests
 	post 'requests/job_title/new' => 'requests#add_job_title'
@@ -18,9 +20,14 @@ Rails.application.routes.draw do
 	get '/logout' => "session#destroy"
 	get '/auth/linkedin/callback' => "session#create"
 
+
 	# teste para o json
 	get '/requests/:request_id/jobs/json' => "jobs#get_json"
 
 	post '/users/job_titles_selections' => 'users#delete_job_title_selection'
+
+	get '/standard_titles/:q' => "jobs#job_titles_tags"
+
+
 
 end

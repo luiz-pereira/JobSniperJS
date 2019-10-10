@@ -1,12 +1,12 @@
-* move scrape to services
+* move scrape to services - OK
 
-* fix oauth
+* fix oauth - nothing to fix(?)
 
 * new/edit request
-- Fix the job_titles once again. i.e. create join table job_titles_request.
-- try to implement a suggestion for - jobtitles.
-- include as many job titles as you want
-- one nice way to includes and excludes, with one text_field two buttons.
+- Fix the job_titles once again. i.e. create join table job_titles_request. OK
+- try to implement a suggestion for - jobtitles. OK
+- include as many job titles as you want. OK
+- one nice way to includes and excludes, with one text_field two buttons. OK - even better
 
 * list requests
 - show it nicely

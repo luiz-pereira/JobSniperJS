@@ -1,48 +1,33 @@
-<% if flash[:alert] %>
-	<div class="alert alert-warning" role="alert">
-  	<%= flash[:alert] %>
-	</div>
-<% end %>
+
 
 	<%= form_for @request do |f| %>
-	<%= f.hidden_field :request_id, {:value => @request.id} %>
 		<div class='text-center'>
 			<%= f.fields_for :job_titles do |jt| %>
 				<%= jt.label "Job titles"%><br>
-					<div class="d-flex justify-content-center input-group">
-					<%= jt.collection_select :selected_job_titles, JobTitlesSelection.all, :id, :title_select, {prompt: false, include_blank: 'Select an option to limit results'}, {class: "text-center col-md-2 form-control"}%>
+				<div class="d-flex justify-content-center input-group">
+					<%= jt.text_field :job_title, id: "job_titles",class: "text-center col-md-2 form-control"%>
 				</div>
 			<% end %>
 
 			<%= f.fields_for :includes do |inc| %>
 				<br>
 				<%= inc.label "include terms"%><br>
-				<%= inc.text_field "include", placeholder: 'include in search' %>
-				<%= inc.submit "Add 'include'", class:'btn-sm btn-primary'%>
 				<div class="d-flex justify-content-center input-group">
-					<%= inc.collection_select :criteria, @request.includes, :id, :criteria, {prompt: false}, {:multiple => true, class: "text-center col-md-2 form-control"} %>
-					<span class="my-auto input-group-btn">
-						<%= inc.submit "Delete Includes", :class => 'btn-sm btn-outline-danger' %>
-					</span>
+					<%= inc.text_field :criteria, id: "includes",class: "text-center col-md-2 form-control"%>
 				</div>
 			<% end %>
 
 			<%= f.fields_for :excludes do |exc| %>
 				<br>
 				<%= exc.label "Exclude terms"%><br>
-				<%= exc.text_field "exclude", placeholder: 'exclude from search' %>
-				<%= exc.submit "Add 'exclude'", class:'btn-sm btn-primary'%>
 				<div class="d-flex justify-content-center input-group">
-					<%= exc.collection_select :criteria, @request.excludes, :id, :criteria, {prompt: false}, {:multiple => true, class: "text-center col-md-2 form-control"} %>
-					<span class="my-auto input-group-btn">
-						<%= exc.submit "Delete Excludes", :class => 'btn-sm btn-outline-danger' %>
-					</span>
+					<%= exc.text_field :criteria, id: "excludes",class: "text-center col-md-2 form-control"%>
 				</div>
 			<% end %>
 			<br>
-			<%= f.submit "Make Request", class:'btn-lg btn-success' %>
+			<%= f.submit "Make Request", class:'btn-lg btn-success', id: "make-request" %>
 		</div>
 	<% end %>
-
-
-
+ <br>
+ <br>
+	<div id="bottom"></div>

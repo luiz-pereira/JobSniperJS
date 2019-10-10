@@ -10,6 +10,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-
+//= require jquery
+//= require jquery_ujs
+//= require jquery-ui
+//= require popper
+//= require turbolinks
 //= require bootstrap
+//= require typeahead/bloodhound
+//= require typeahead/typeahead
+//= require typeahead/typeahead_jquery
+//= require typeahead/tagsinput
+//= require newrequest
 //= require_tree .
+

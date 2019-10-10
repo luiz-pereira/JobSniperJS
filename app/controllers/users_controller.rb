@@ -25,7 +25,12 @@ class UsersController < ApplicationController
 		end
 	end
 
+	# APIs
+	def user_requests_data
+		# parei aqui, vou fazer a API
+		# lembrar do serializer
 
+	end
 
 	private
 
