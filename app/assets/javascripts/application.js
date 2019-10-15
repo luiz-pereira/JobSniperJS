@@ -20,6 +20,4 @@
 //= require typeahead/typeahead
 //= require typeahead/typeahead_jquery
 //= require typeahead/tagsinput
-//= require newrequest
-//= require_tree .
 

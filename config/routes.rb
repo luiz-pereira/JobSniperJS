@@ -4,8 +4,10 @@ Rails.application.routes.draw do
 	resources :users do
 		resources :requests do
 			resources :jobs, only: [:index]
+			patch '/jobs' => 'jobs#update'
 		end
 	end
+
 
 
 	resources :requests
@@ -22,12 +24,7 @@ Rails.application.routes.draw do
 
 
 	# teste para o json
-	get '/requests/:request_id/jobs/json' => "jobs#get_json"
-
-	post '/users/job_titles_selections' => 'users#delete_job_title_selection'
-
-	get '/standard_titles/:q' => "jobs#job_titles_tags"
-
+	get '/users/:user_id/data/requests' => "users#user_requests_data"
 
 
 end

@@ -9,7 +9,7 @@
 - one nice way to includes and excludes, with one text_field two buttons. OK - even better
 
 * list requests
-- show it nicely
+- show it nicely (kind of nice)
 - maybe allow for editing in loco?
 - grab through API
 - show titles has_many
@@ -26,3 +26,18 @@
 
 * pmi emails
 - change it to a one page application with JS
+
+
+
+display: inline-block;
+  top: 0px;
+  position: relative;
+	width: 262px;
+	max-height: 230px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 32px 24px;
+  margin: 12px;
+  text-decoration: none;
+  overflow: hidden;
+  border: 1px solid #cccccc;

@@ -26,10 +26,14 @@ class UsersController < ApplicationController
 	end
 
 	# APIs
-	def user_requests_data
-		# parei aqui, vou fazer a API
-		# lembrar do serializer
 
+	def user_requests_data
+		if params[:user_id].to_i != current_user.id
+			render json: {Success: false}, status: 401
+		else
+			@requests = current_user.requests
+			render json: @requests, status: 200
+		end
 	end
 
 	private

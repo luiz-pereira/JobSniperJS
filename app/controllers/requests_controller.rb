@@ -26,12 +26,9 @@ class RequestsController < ApplicationController
 	end
 
 	def update
-		# modify this for updating
-		if params[:request]
-			@request = Request.find(params[:request][:request_id])
-		end
-		@user = current_user
+		@request = Request.find(params[:id])
 	end
+
 
 	def destroy
 		Request.find(params[:id]).delete

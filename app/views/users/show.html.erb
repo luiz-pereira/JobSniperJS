@@ -1,45 +1,12 @@
 
+<head>
+	<%= javascript_include_tag 'user_home' %>
+</head>
+
 <br>
 <h4><%= link_to 'Make a new request', new_user_request_path(@user) %></h4>
 <br>
-<br>
-<table class='table-hover' style="width:100%">
-  <tr>
-    <th>Request #</th>
-		<th>included keys</th>
-		<th>excluded keys</th>
-		<th>Last updated</th>
-    <th>actions</th>
-  </tr>
-  	<%@requests.each do |request|%>
-	<tr>
-
-		<td><%= link_to request.id, user_request_jobs_path(@user, request) %></td>
-		<td>
-			<ul>
-				<%request.includes.each do |parameter|%>
-					<li><%=parameter.criteria%></li>
-				<%end%>
-			</ul>
-		</td>
-		<td>
-			<ul>
-				<%request.excludes.each do |parameter|%>
-					<li><%=parameter.criteria%></li>
-				<%end%>
-			</ul>
-		</td>
-		<td>
-			<%=(request.date_updated || Time.now).strftime("%d/%m/%Y")%><br>
-			<%= button_to "Update request", request_path(request), method: :patch %>
-		</td>
-		<td>
-			<form action="/<%=@user.username%>/requests/<%=request.id%>" method="post">
-				<input type="hidden" name="_method" value="patch">
-				<input type="submit" value="edit">
-			</form>
-			<%= button_to "Delete", request_path(request), method: :delete  %>
-		</td>
-	</tr>
-  <%end%>
-</table>
+<!-- card start here -->
+<div class="container-fluid" id="request-cards"></div>
+<!-- card stops here -->
+<input type="hidden" id="user_id" value='<%= @user.id %>'>

@@ -1,0 +1,124 @@
+table, th, td {
+	border: 1px solid black;
+}
+th, tr {text-align: center}
+tr:nth-child(even) {background-color: #f2f2f2;}
+li {text-align: left}
+
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+
+* {
+  transition: all 0.3s ease-out;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+h5#request-titles {
+  color: #262626;
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+p {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #666666;
+
+  &.small {
+    font-size: 14px;
+  }
+}
+
+p#includes{
+	font-size: 12px;
+  font-weight: 400;
+	color: darkblue;
+	margin-bottom: 0px;
+}
+p#excludes{
+	font-size: 12px;
+  font-weight: 400;
+	color: red;
+	margin-bottom: 0px;
+}
+
+a#not-updated{
+	color: yellow;
+}
+
+h6 {
+	color: #3d9ae2;
+	font-size: 15px;
+	 line-height: 15px;
+		font-weight: 700;
+	padding-bottom: 20px;
+	margin-top: 8px;}
+svg {
+	padding-bottom: 10px;
+}
+
+.card4 {
+	display: inline-block;
+  top: 0px;
+  position: relative;
+	width: 262px;
+	height: 230px;
+  border-radius: 4px;
+  text-decoration: none;
+	background-color: transparent;
+	perspective: 1000px;
+}
+
+/* This container is needed to position the front and back side */
+.card4-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.card4:hover .card4-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.card4-front, .card4-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.card4-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.card4-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
