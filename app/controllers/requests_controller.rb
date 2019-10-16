@@ -35,6 +35,11 @@ class RequestsController < ApplicationController
 		redirect_to user_path(current_user)
 	end
 
+	def request_data
+		@request = Request.find(params[:request_id])
+		render json: @request, status: 200
+	end
+
 private
 
 	def request_params

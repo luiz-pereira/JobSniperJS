@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
 	# teste para o json
 	get '/users/:user_id/data/requests' => "users#user_requests_data"
+	get '/users/:user_id/data/requests/:request_id' => "requests#request_data"
 
 
 end

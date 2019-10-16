@@ -6,6 +6,10 @@ class RequestSerializer < ActiveModel::Serializer
 
 	has_one :job_count
 
+	def date_updated
+		object.date_updated.strftime("%m/%d/%Y")
+	end
+
 	def job_count
 	 	object.jobs.size
 	end

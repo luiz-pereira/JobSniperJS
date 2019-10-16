@@ -2,11 +2,13 @@
 <head>
 	<%= javascript_include_tag 'user_home' %>
 </head>
-
+<!--
 <br>
 <h4><%= link_to 'Make a new request', new_user_request_path(@user) %></h4>
 <br>
+-->
 <!-- card start here -->
 <div class="container-fluid" id="request-cards"></div>
 <!-- card stops here -->
 <input type="hidden" id="user_id" value='<%= @user.id %>'>
+

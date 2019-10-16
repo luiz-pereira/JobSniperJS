@@ -3,7 +3,7 @@ class JobsController < ApplicationController
 	skip_before_action :verify_authenticity_token
 
 	def index
-		redirect_to root_path if params[:user_id] != current_user.username
+		redirect_to root_path if params[:user_id].to_i != current_user.id
 		@request = Request.find(params[:request_id])
 		@titles = @request.job_titles.map(&:job_title).join(', ')
 		@jobs = @request.jobs.order(source: :desc)
