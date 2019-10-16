@@ -9,35 +9,25 @@
 - one nice way to includes and excludes, with one text_field two buttons. OK - even better
 
 * list requests
-- show it nicely (kind of nice)
 - maybe allow for editing in loco?
-- grab through API
-- show titles has_many
-- show number of jobs has_many
+- show it nicely (kind of nice)
+- grab through API - OK
+- show titles has_many - OK
+- show number of jobs has_many - OK
 
 * list jobs (show page request)
 - show page
-- show it nicely
+- show it nicely - meh - OK
 
 * update request
-- try to do it asynchronous (with current status). through rails api and then?. method update() in JS class Request.
+- try to do it asynchronous (with current status). through rails api and then?. method update() in JS - OK
 
 * write some tests
+
+
+
 
 * pmi emails
 - change it to a one page application with JS
 
-
-
-display: inline-block;
-  top: 0px;
-  position: relative;
-	width: 262px;
-	max-height: 230px;
-  background-color: #ffffff;
-  border-radius: 4px;
-  padding: 32px 24px;
-  margin: 12px;
-  text-decoration: none;
-  overflow: hidden;
-  border: 1px solid #cccccc;
+class Request. - OK - check if it is updating the text for job_counting
