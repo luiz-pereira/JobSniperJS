@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require popper
-//= require turbolinks
 //= require bootstrap
 //= require typeahead/bloodhound
 //= require typeahead/typeahead

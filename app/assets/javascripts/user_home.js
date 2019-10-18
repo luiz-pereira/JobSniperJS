@@ -98,7 +98,7 @@ function makeCard(request){
 			request.update().then(() => {
 				$(`#update-status-${request.id}`).text("Updated!");
 				$(`#update-status-${request.id}`).css('color', 'green');
-				$(`#job-count-${request.id}`).text(`${request.jobCount}`)
+				$(`#job-count-${request.id}`).text(`${request.jobCount} Jobs`)
 			})
 		})
 	})

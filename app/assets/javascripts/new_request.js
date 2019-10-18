@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$('#job_titles').tagsInput({
+	$('#newRequestjobTitles').tagsInput({
 		interactive: true,
 		placeholder: 'Please input the job titles',
 		width: 'auto',
@@ -9,8 +9,10 @@ $(document).ready(function(){
 		removeWithBackspace: true,
 		'autocomplete': {
 			source: ["Project Manager","Project Coordinator","Project Control Officer","Project Analyst","Investment Analyst","Analyst","Research","Product Manager"]
-		 }
+		 },
+		confirmKeys: [13, 9, 44]
 	});
+
 	$('#includes').tagsInput({
 		interactive: true,
 		placeholder: 'Terms to be included in your search',
@@ -31,11 +33,14 @@ $(document).ready(function(){
 		removeWithBackspace: true,
 	});
 	$('#make-request').on('click', function(event){
+
 		if ($('#job_titles_tagsinput').text() === "" && $('#excludes_tagsinput').text() === "" &&$('#includes_tagsinput').text() === ""){
 			event.preventDefault()
+			$('#bottom').empty()
 			$('#bottom').append('<div id="alert-bottom" class="alert alert-danger" role="alert">You need to fill at least one the fields or it will take too long!</div>')
 		} else {
 			$('#bottom').empty()
+
 			$(this).submit()
 		}
 	})

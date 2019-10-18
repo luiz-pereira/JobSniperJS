@@ -9,5 +9,3 @@
 
 * pmi emails
 - change it to a one page application with JS
-
-class Request. - OK - check if it is updating the text for job_counting
