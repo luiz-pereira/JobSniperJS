@@ -49,11 +49,11 @@ class Request{
 		response.then(data => {
 			this.jobCount = data.job_count
 			this.dateUpdated = data.date_updated
-			this.jobCount = data.jobCount
 			this.titles = data.job_titles
 			this.excludes = data.excludes
  			this.includes = data.includes
 		})
+		return await response
 	}
 }
 
