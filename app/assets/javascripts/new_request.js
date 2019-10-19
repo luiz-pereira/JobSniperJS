@@ -39,9 +39,10 @@ $(document).ready(function(){
 			$('#bottom').empty()
 			$('#bottom').append('<div id="alert-bottom" class="alert alert-danger" role="alert">You need to fill at least one the fields or it will take too long!</div>')
 		} else {
-			$('#bottom').empty()
-
-			$(this).submit()
+			// reset modal
+			// close modal
+			// create request
+			// update request
 		}
 	})
 

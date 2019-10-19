@@ -4,15 +4,22 @@ let userId = ''
 $(function(){
 	userId = $('#user_id').val()
 	getRequests()
+	handleCreateRequest()
 })
 
 function getRequests(){
+
 	fetch(`/users/${userId}/data/requests`)
 	.then(response => response.json())
 	.then(function(data){
 		createRequests(data)
-		requests.forEach(request => makeCard(request))
+		makeCards()
 	})
+}
+
+function makeCards(){
+	$('#request-cards').empty()
+	requests.forEach(request => makeCard(request))
 }
 
 async function getRequest(request){
@@ -52,9 +59,9 @@ class Request{
 
 function makeCard(request){
 	let excludes = ""
-	request.excludes.forEach(exclude => excludes += `<p id='excludes'>- ${exclude}</p></li>`)
+	request.excludes.forEach(exclude => excludes += `<p class='excludes'>- ${exclude}</p></li>`)
 	let includes = ""
-	request.includes.forEach(include => includes += `<p id='includes'>+${include}</p></li>`)
+	request.includes.forEach(include => includes += `<p class='includes'>+${include}</p></li>`)
 	let titles = request.titles.join(', ')
 	let jobCount = request.jobCount
 
@@ -64,10 +71,10 @@ function makeCard(request){
 					<div class="card4-front">
 						<h5 id="request-titles">${titles}</h5>
 						<div class="row">
-							<ul class="col" id='ul-includes'>
+							<ul class="col">
 								${includes}
 							</ul>
-							<ul class="col" id='ul-excludes'>
+							<ul class="col">
 								${excludes}
 							</ul>
 						</div>
@@ -85,14 +92,15 @@ function makeCard(request){
 							<button class="btn btn-primary" id="update-request-${request.id}">Update</button>
 						</div>
 						<div class="text-center buttons">
-							<button class="btn btn-warning" d="edit-request-${request.id}">Edit</button>
-							<button class="btn btn-danger"d="delete-request-${request.id}">Delete</button>
+							<button class="btn btn-warning" id="edit-request-${request.id}">Edit</button>
+							<button class="btn btn-danger" id="delete-request-${request.id}">Delete</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		`
 	$('#request-cards').append(card)
+	// update button
 	document.getElementById(`update-request-${request.id}`).addEventListener("click", function(e){
 		requestUpdate(request).then(() => {
 			request.update().then(() => {
@@ -100,6 +108,13 @@ function makeCard(request){
 				$(`#update-status-${request.id}`).css('color', 'green');
 				$(`#job-count-${request.id}`).text(`${request.jobCount} Jobs`)
 			})
+		})
+	})
+	// delete button
+	document.getElementById(`delete-request-${request.id}`).addEventListener("click", function(e){
+		requestDelete(request).then(() => {
+			requests.pop(request)
+			makeCards()
 		})
 	})
 }
@@ -112,4 +127,85 @@ async function requestUpdate(request){
 	$(`#update-status-${request.id}`).text("Updating...")
 	$(`#update-status-${request.id}`).css('color', 'red')
 	return await response
+}
+
+async function requestDelete(request){
+	response = fetch(`/users/${userId}/requests/${request.id}`,{
+		method: 'DELETE'
+	})
+	return await response
+}
+
+function handleCreateRequest(){
+	$('#newRequestjobTitles').tagsInput({
+		interactive: true,
+		placeholder: 'Please input the job titles',
+		width: 'auto',
+		height: 'auto',
+		hide: true,
+		delimiter: ',',
+		removeWithBackspace: true,
+		'autocomplete': {
+			source: ["Project Manager","Project Coordinator","Project Control Officer","Project Analyst","Investment Analyst","Analyst","Research","Product Manager"]
+		},
+		confirmKeys: [13, 9, 44]
+	});
+
+	$('#includes').tagsInput({
+		interactive: true,
+		placeholder: 'Terms to be included in your search',
+		width: 'auto',
+		height: 'auto',
+		hide: true,
+		delimiter: ',',
+		removeWithBackspace: true,
+	});
+
+	$('#excludes').tagsInput({
+		interactive: true,
+		placeholder: 'Terms to be excluded from your search',
+		width: 'auto',
+		height: 'auto',
+		hide: true,
+		delimiter: ',',
+		removeWithBackspace: true,
+	});
+	$('#make-request').on('click', function(event){
+
+		if ($('#job_titles_tagsinput').text() === "" && $('#excludes_tagsinput').text() === "" &&$('#includes_tagsinput').text() === ""){
+			event.preventDefault()
+			$('#bottom').empty()
+			$('#bottom').append('<div id="alert-bottom" class="alert alert-danger" role="alert">You need to fill at least one the fields or it will take too long!</div>')
+		} else {
+			event.preventDefault()
+			postAndCreateRequest()
+			resetModal()
+		}
+	})
+}
+
+function postAndCreateRequest(){
+	let jobTitles = $('#newRequestjobTitles').val()
+	let excludes = $('#excludes').val()
+	let includes = $('#includes').val()
+	let data = {
+		job_titles: jobTitles,
+		excludes: excludes,
+		includes: includes,
+	}
+	fetch(`/users/${userId}/requests`,{
+		method: 'post',
+		credentials: 'same-origin',
+    headers: {'Content-Type': 'application/json'},
+		body: JSON.stringify(data)
+	}).then(response => response.json())
+	.then(function(data){
+		request = new Request(data.id, data.date_updated, data.job_count, data.job_titles, data.excludes, data.includes)
+		makeCard(request)
+		document.getElementById(`update-request-${request.id}`).click()
+	})
+}
+
+function resetModal() {
+	$('#createRequest').modal('hide')
 }

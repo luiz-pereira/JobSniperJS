@@ -13,7 +13,6 @@ class RequestService
 			attribs = {:include => @include, :location => @location,:exclude => @exclude,:title => title}
 			scrape.process_request(attribs)
 		end
-
 		@request.date_updated = Time.now.strftime("%d/%m/%Y")
 		@request.save
 	end

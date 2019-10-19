@@ -1,5 +1,7 @@
 class RequestsController < ApplicationController
 
+	skip_before_action :verify_authenticity_token
+
 	def new
 		if not logged_in?
 			redirect_to '/login'
@@ -12,17 +14,18 @@ class RequestsController < ApplicationController
 	def create
 		@user = current_user
 		@request = @user.requests.create
-		params[:request][:job_titles][:job_title].split(',').each do |job_title|
+		params[:job_titles].split(',').each do |job_title|
 			@request.job_titles.create({job_title: job_title})
 		end
-		params[:request][:includes][:criteria].split(',').each do |include|
+		params[:includes].split(',').each do |include|
 			@request.includes.create({criteria: include})
 		end
-		params[:request][:excludes][:criteria].split(',').each do |exclude|
+		params[:excludes].split(',').each do |exclude|
 			@request.excludes.create({criteria: exclude})
 		end
-		RequestService.new.get_jobs(@request)
-		redirect_to user_request_jobs_path(@user, @request)
+		@request.date_updated = (Time.now-9999999).strftime("%d/%m/%Y")
+		@request.save
+		render json: @request, status: 200
 	end
 
 	def update
@@ -32,7 +35,7 @@ class RequestsController < ApplicationController
 
 	def destroy
 		Request.find(params[:id]).delete
-		redirect_to user_path(current_user)
+		render json: {success: true}, status: 200
 	end
 
 	def request_data

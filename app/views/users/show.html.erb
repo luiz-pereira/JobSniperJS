@@ -1,7 +1,6 @@
 
 <head>
 	<%= javascript_include_tag 'user_home' %>
-	<%= javascript_include_tag 'new_request' %>
 </head>
 <!--
 <br>
@@ -32,7 +31,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= form_for :request do |f| %>
+        <%= form_for :request, url: requests_path, method: "post" do |f| %>
 
 						<%= f.fields_for :job_titles do |jt| %>
 							<%= jt.label "Job titles"%><br>

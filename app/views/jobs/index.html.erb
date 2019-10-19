@@ -1,7 +1,13 @@
 
-<table style="width:100%" class='table table-sm'>
+<%= javascript_include_tag 'job_index' %>
+<%= stylesheet_link_tag 'jobs' %>
+
+<input type="hidden" id="user-id" value='<%= @user %>'>
+<input type="hidden" id="request-id" value='<%= @request.id %>'>
+
+
+<table style="width:100%" class='table table-sm' id='table-jobs'>
 	<tr>
-		<th>id</th>
 		<th>Source</th>
 		<th>Title</th>
 		<th>Company</th>
@@ -10,16 +16,5 @@
 		<th>Summary</th>
 		<th>link</th>
 	</tr>
-		<%@jobs.each do |job|%>
-			<tr>
-				<td><%=job.id%>. </td>
-				<td><%=job.source%></td>
-				<td><%=job.title%></td>
-				<td><%=job.company%></td>
-				<td><%=job.tipe%></td>
-				<td><%=job.city%></td>
-				<td><%=job.summary%></td>
-				<td><a href="<%=job.link%>" target="_blank">Link to the position</a></td>
-			</tr>
-		<%end%>
+
 </table>

@@ -1,7 +1,4 @@
 
-* new request
-- implement it in the user's homepage
-
 * list requests
 - maybe allow for editing in loco?
 
