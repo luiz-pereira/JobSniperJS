@@ -23,11 +23,11 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+	config.assets.js_compressor = Uglifier.new(harmony: true)
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+  # config.assets.compile = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -85,15 +85,13 @@ Rails.application.configure do
 
 	config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
-    logger.formatter = config.log_formatter
-    config.logger    = ActiveSupport::TaggedLogging.new(logger)
-  end
+	if ENV["RAILS_LOG_TO_STDOUT"].present?
+		logger           = ActiveSupport::Logger.new(STDOUT)
+		logger.formatter = config.log_formatter
+		config.logger = ActiveSupport::TaggedLogging.new(logger)
+	end
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.google_cloud.debugger.service_name = "jobsniper"
-  config.google_cloud.debugger.service_version = "SERVICE-VERSION"
 end

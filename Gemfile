@@ -17,7 +17,7 @@ gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
@@ -63,10 +63,6 @@ group :test do
   gem 'chromedriver-helper'
 end
 
-gem "appengine", "~> 0.5.0"
-
-gem "stackdriver", "~> 0.15.4"
-
 gem "omniauth"
 
 gem "omniauth-linkedin-oauth2"
@@ -86,3 +82,5 @@ gem "select2-rails", "~> 4.0"
 gem "popper_js", "~> 1.14"
 
 gem "active_model_serializers", "~> 0.10.10"
+
+gem "webpacker", "~> 4.0"

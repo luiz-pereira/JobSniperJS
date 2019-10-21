@@ -59,9 +59,5 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
 	config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-	config.google_cloud.use_trace = false
-	config.google_cloud.use_logging = false
-	config.google_cloud.use_error_reporting = false
-	config.google_cloud.use_debugger = false
 
 end

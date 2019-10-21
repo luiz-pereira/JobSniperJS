@@ -30,3 +30,9 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /job-sniper-rails-dbc45b78c951.json
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
