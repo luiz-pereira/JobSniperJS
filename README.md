@@ -1,11 +1,11 @@
 # JobSniperJS
 JobSniper converted to Rails
 
-The idea of this webapp is to help the user go searching through thousands of job posts in indeed.com with better queries and keep track of different requests.
+The idea of this webapp is to help the user go searching through thousands of job posts in indeed.com and linkedin with better queries and keep track of different requests. It filters the requests and present a more optimized job listing.
 
 Hopefully, it will help short-list the postings that more closely suits the user, by removing the ones that doesn't conform to the stated requests.
 
-(this) is the JS version of the app. I have included some nice JS features.
+(this) is the JS version of the app. I have included some nice JS features like Asynchronous requests, which means you can update as many requests as you want at the same time and you also don't need to wait for a request to be updated before navigating to each request view.
 
 - The application will store job postings linked to an user's request
 - each user can see all their requests and update with new information from indeed and linkedin
@@ -14,7 +14,7 @@ Hopefully, it will help short-list the postings that more closely suits the user
 
 Views:
 - signup: simple form for creating a customer's account. contains e-mail and password and allows for oauth through linkedin
-- log in: simple log in form with OAuth
+- log in: simple log in form with OAuth linkedin.
 - index: will show all user's requests and click on them. Each request is a card with JS functionality for updating the request (through API) and deleting (through API). Each request can be updated in an asynchronous manner.
 - make request: starts a new request with several parameters on the same page. The new request is done through a modal pop-up
 
@@ -24,11 +24,7 @@ models:
 - job: has a request_id, title and content
 - parameters: to be used in conjunction with requests (belongs_to requests).
 
-controllers:
-- appcontroller: overall handling of the application
-- usercontroller: handles requests related to users
-- requestcontroller:handles requests related to requests
-- jobcontroller:handles requests related to jobs
+
 
 Other things:
 
