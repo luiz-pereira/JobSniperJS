@@ -1,6 +1,6 @@
 development:
   adapter: postgresql
-  database: my_database_development
+  database: luizpereira
   pool: 5
   timeout: 5000
 test:
