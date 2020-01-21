@@ -3,19 +3,38 @@
 	input{font-size:24px;text-align: center;}
 	h2.form_title {text-align: center;}
 	#homepage {font-size:36px;text-align: center;}
+
+	html, body {
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		width: 100%;
+		font-family: 'Montserrat', sans-serif;
+	}
+
+	#home-body{
+		background-image: url(home-bg.png);
+		display: table;
+		top: 0;
+		background-size:100%;
+		background-size: cover;
+		background-attachment: fixed; 
+	}
+
 	#main-logo{
-		max-height: 35%;
-		max-width: 35%;
+		height: 100%;
+
+		
 	}
 	#blue-wave{
-		position:absolute;
-		left:0px;
-		top:300px;
+		position: relative;
+		max-height: 70%;
+		width: 100%;
 	}
 	#blue-wave2{
-		position:absolute;
-		left:0px;
-		top:300px;
+		position: relative;
+		max-height: 70%;
+		width: 100%;
 	}
 	img.navimg{
 		max-height: 70%;
