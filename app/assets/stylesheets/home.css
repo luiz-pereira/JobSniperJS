@@ -9,7 +9,7 @@
 		padding: 0;
 		height: 100%;
 		width: 100%;
-		font-family: 'Montserrat', sans-serif;
+		font-family: 'Montserrat';
 	}
 
 	#home-body{
@@ -183,4 +183,46 @@
 			.forgot-password:active,
 			.forgot-password:focus{
 					color: rgb(12, 97, 33);
+			}
+
+			#main-title{
+				font-size: 6em;
+				font-weight: 400;
+				color: antiquewhite;
+				position: relative;
+				padding: 330px 0px 5px 560px;
+			}
+
+			#description{
+				font-size: 3em;
+				font-weight: 200;
+				color: antiquewhite;
+				position: relative;
+				padding: 0 0 30px 560px;
+			}
+
+			#main-div a{
+				font-size: 2em;
+				font-weight: 100;
+				border-color: antiquewhite;
+				border-style: solid;
+				border-width: 1px;
+				border-radius: 10px;
+				text-decoration: none;
+				color: antiquewhite;
+				margin: 30px 0 0 560px;
+				padding: 5px 5px 5px 5px;
+			}
+
+			#main-div a:hover{
+				font-size: 2em;
+				font-weight: 100;
+				border-color: orange;
+				border-style: solid;
+				border-radius: 10px;
+			
+				text-decoration: none;
+				color: orange;
+				margin: 30px 0 0 560px;
+				padding: 5px 5px 5px 5px;
 			}
