@@ -8,16 +8,16 @@
 <br>
 -->
 <!-- card start here -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createRequest">
-	Create a New Request
-</button>
+
+	<button id="popCreateRequest" type="button" class="btn btn-primary" data-toggle="modal" data-target="#createRequest">
+		Create a New Request
+	</button>
+
 <br>
 <div class="container-fluid" id="request-cards">
 </div>
 <!-- card stops here -->
 <input type="hidden" id="user_id" value='<%= @user.id %>'>
-
-<!-- Button trigger modal -->
 
 
 <!-- Modal -->
@@ -59,8 +59,8 @@
 					<%= f.submit "Make Request", class:'btn btn-success', id: "make-request" %>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
-<div id="bottom"></div>
-				<% end %>
+			<div id="bottom"></div>
+		<% end %>
     </div>
   </div>
 </div>
