@@ -192,17 +192,16 @@ function postAndCreateRequest(){
 		job_titles: jobTitles,
 		excludes: excludes,
 		includes: includes,
+		temporary: false
 	}
-	fetch(`/users/${userId}/requests`,{
+	fetch(`/users/temp/jobs`,{ //aqui trocar para outra API que va direto para o scraping
 		method: 'post',
 		credentials: 'same-origin',
     headers: {'Content-Type': 'application/json'},
 		body: JSON.stringify(data)
 	}).then(response => response.json())
 	.then(function(data){
-		request = new Request(data.id, data.date_updated, data.job_count, data.job_titles, data.excludes, data.includes)
-		makeCard(request)
-		document.getElementById(`update-request-${request.id}`).click()
+		// direcionar para a lista de jobs
 	})
 }
 

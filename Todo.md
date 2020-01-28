@@ -31,3 +31,12 @@
 - change it to a one page application with JS
 
 class Request. - OK - check if it is updating the text for job_counting
+
+
+- clicar modal
+- 'make request'
+	- manda 'post' para a API, que vai executar o scrape
+		- scrape precisa ser temporario, sem criar request
+	- enquanto scrapa, disabla tudo, pois user precisa esperar
+	- salva os jobs do scrape temporariamente na tabela jobs, marca como temporario (request_id nil?)
+
