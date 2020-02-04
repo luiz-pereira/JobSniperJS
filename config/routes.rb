@@ -8,9 +8,10 @@ Rails.application.routes.draw do
 		end
 	end
 
-
-
-	resources :requests
+	resources :requests do
+		resources :jobs, only: [:index]
+	end
+	
 	post 'requests/job_title/new' => 'requests#add_job_title'
 	post 'requests/temp' => "requests#temp"
 

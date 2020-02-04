@@ -39,4 +39,5 @@ class Request. - OK - check if it is updating the text for job_counting
 		- scrape precisa ser temporario, sem criar request
 	- enquanto scrapa, disabla tudo, pois user precisa esperar
 	- salva os jobs do scrape temporariamente na tabela jobs, marca como temporario (request_id nil?)
+	- Deleta o request
 

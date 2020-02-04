@@ -14,6 +14,6 @@ class RequestService
 			scrape.process_request(attribs)
 		end
 		@request.date_updated = Time.now.strftime("%d/%m/%Y")
-		@request.save if @request.id
+		@request.save
 	end
 end

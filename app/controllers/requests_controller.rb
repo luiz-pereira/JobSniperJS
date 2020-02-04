@@ -24,6 +24,7 @@ class RequestsController < ApplicationController
 			@request.excludes.create({criteria: exclude})
 		end
 		@request.date_updated = (Time.now-9999999).strftime("%d/%m/%Y")
+		@request.temporary = false
 		@request.save
 		render json: @request, status: 200
 	end
@@ -45,12 +46,15 @@ class RequestsController < ApplicationController
 
 	# this is used for guest job search
 	def temp
-		@request = Request.new
-		params[:job_titles].split(',').each {|title| @request.job_titles.new(job_title: title)}
-		params[:includes].split(',').each {|criteria| @request.includes.new(criteria: criteria)}
-		params[:excludes].split(',').each {|criteria| @request.excludes.new(criteria: criteria)}
-		@request.locations = "Toronto"
-		RequestService.new.get_jobs(request)
+		@user = User.find_by(name: "Guest") || User.create({name: "Guest", email: 'guest@guest.com', password:'123'})
+		@request = @user.requests.create ({temporary: true})
+		params[:job_titles].split(',').each {|title| @request.job_titles.create(job_title: title)}
+		params[:includes].split(',').each {|criteria| @request.includes.create(criteria: criteria)}
+		params[:excludes].split(',').each {|criteria| @request.excludes.create(criteria: criteria)}
+		@request.save
+		RequestService.new.get_jobs(@request)
+		render json: @request, status: 200
+		binding.pry
 	end
 
 private

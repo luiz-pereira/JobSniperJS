@@ -48,8 +48,8 @@ function handleCreateRequest(){
 			document.getElementById('includes').disabled = true
 			document.getElementById('excludes').disabled = true
 			document.getElementById('make-request').disabled = true
+			document.getElementById('make-request').Text = "Searching..."
 			getJobs()
-			resetModal()
 		}
 	})
 }
@@ -71,9 +71,9 @@ function getJobs(){
 		body: JSON.stringify(data)
 	}).then(response => response.json())
 	.then(function(data){
-		// redirect to jobs page
+		window.location = (`/requests/${data.id}/jobs`)
 	})
-	debugger
+
 }
 
 function resetModal() {
