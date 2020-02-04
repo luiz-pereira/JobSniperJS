@@ -44,6 +44,10 @@ function handleCreateRequest(){
 			$('#bottom').append('<div id="alert-bottom" class="alert alert-danger" role="alert">You need to fill at least one the fields or it will take too long!</div>')
 		} else {
 			event.preventDefault()
+			document.getElementById('newRequestjobTitles').disabled = true
+			document.getElementById('includes').disabled = true
+			document.getElementById('excludes').disabled = true
+			document.getElementById('make-request').disabled = true
 			getJobs()
 			resetModal()
 		}
@@ -60,17 +64,16 @@ function getJobs(){
 		includes: includes,
 		temporary: true
 	}
-	fetch(`/users/${userId}/requests`,{
+	fetch(`/requests/temp`,{
 		method: 'post',
 		credentials: 'same-origin',
     headers: {'Content-Type': 'application/json'},
 		body: JSON.stringify(data)
 	}).then(response => response.json())
 	.then(function(data){
-		request = new Request(data.id, data.date_updated, data.job_count, data.job_titles, data.excludes, data.includes)
-		makeCard(request)
-		document.getElementById(`update-request-${request.id}`).click()
+		// redirect to jobs page
 	})
+	debugger
 }
 
 function resetModal() {

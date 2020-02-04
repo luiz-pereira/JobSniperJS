@@ -43,10 +43,22 @@ class RequestsController < ApplicationController
 		render json: @request, status: 200
 	end
 
+	# this is used for guest job search
+	def temp
+		@request = Request.new
+		params[:job_titles].split(',').each {|title| @request.job_titles.new(job_title: title)}
+		params[:includes].split(',').each {|criteria| @request.includes.new(criteria: criteria)}
+		params[:excludes].split(',').each {|criteria| @request.excludes.new(criteria: criteria)}
+		@request.locations = "Toronto"
+		RequestService.new.get_jobs(request)
+	end
+
 private
 
 	def request_params
 		params.require(:request).permit(:job_title=>[:job_title])
 	end
+
+
 
 end
