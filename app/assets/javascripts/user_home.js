@@ -1,4 +1,4 @@
-const requests = []
+let requests = []
 let userId = ''
 
 $(function(){
@@ -113,7 +113,7 @@ function makeCard(request){
 	// delete button
 	document.getElementById(`delete-request-${request.id}`).addEventListener("click", function(e){
 		requestDelete(request).then(() => {
-			requests.pop(request)
+			requests = requests.filter(r => r.id !== request.id)
 			makeCards()
 		})
 	})
