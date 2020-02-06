@@ -10,12 +10,12 @@ function handleCreateRequest(){
 		width: 'auto',
 		height: 'auto',
 		hide: true,
-		searchOnFocus: true, 
+		// searchOnFocus: true, 
 		delimiter: ',',
 		removeWithBackspace: true,
-		autocomplete: {
-			source: ["Project Manager","Project Coordinator","Project Control Officer","Project Analyst","Investment Analyst","Analyst","Research","Product Manager"]
-		},
+		// autocomplete: {
+		// 	source: ["Project Manager","Project Coordinator","Project Control Officer","Project Analyst","Investment Analyst","Analyst","Research","Product Manager"]
+		// },
 	});
 
 	$('#includes').tagsInput({
