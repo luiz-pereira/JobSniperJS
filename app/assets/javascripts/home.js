@@ -76,7 +76,7 @@ function getJobs(){
 		includes: includes,
 		temporary: true
 	}
-	fetch(`/requests/temp`,{
+	fetch(`/requests/temp/`,{
 		method: 'post',
 		credentials: 'same-origin',
     headers: {'Content-Type': 'application/json'},
