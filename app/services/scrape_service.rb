@@ -99,7 +99,7 @@ class ScrapeService
 
 		def clean_jobs_by_title(criteria)
 			if !!criteria
-				@request.jobs.where("criteria=? AND title NOT LIKE ?", criteria, "%#{criteria}%").delete_all
+				@request.jobs.where("lower(criteria)=? AND lower(title) NOT LIKE ?", criteria.downcase, "%#{criteria.downcase}%").delete_all
 			end
 		end
 
@@ -128,10 +128,10 @@ class ScrapeService
 
 		def clean_jobs_by_description(criteria)
 			@request.includes.each do |parameter|
-				@request.jobs.where("criteria=? AND description NOT LIKE ?", criteria, "%#{parameter.criteria}%").destroy_all
+				@request.jobs.where("lower(criteria)=? AND lower(description) NOT LIKE ?", criteria.downcase, "%#{parameter.criteria.downcase}%").destroy_all
 			end
 			@request.excludes.each do |parameter|
-				@request.jobs.where("criteria=? AND description LIKE ?", criteria, "%#{parameter.criteria}%").destroy_all
+				@request.jobs.where("lower(criteria)=? AND lower(description) LIKE ?", criteria.downcase, "%#{parameter.criteria.downcase}%").destroy_all
 			end
 		end
 end

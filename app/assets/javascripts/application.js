@@ -15,8 +15,7 @@
 //= require jquery-ui
 //= require popper
 //= require bootstrap
-//= require typeahead/bloodhound
-//= require typeahead/typeahead
-//= require typeahead/typeahead_jquery
 //= require typeahead/tagsinput
+//= require typeahead/typeahead
+
 

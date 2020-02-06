@@ -3,18 +3,19 @@ $(function(){
 })
 
 function handleCreateRequest(){
+	
 	$('#newRequestjobTitles').tagsInput({
 		interactive: true,
 		placeholder: 'Please input the job titles',
 		width: 'auto',
 		height: 'auto',
 		hide: true,
+		searchOnFocus: true, 
 		delimiter: ',',
 		removeWithBackspace: true,
-		'autocomplete': {
+		autocomplete: {
 			source: ["Project Manager","Project Coordinator","Project Control Officer","Project Analyst","Investment Analyst","Analyst","Research","Product Manager"]
 		},
-		confirmKeys: [13, 9, 44]
 	});
 
 	$('#includes').tagsInput({
@@ -36,6 +37,7 @@ function handleCreateRequest(){
 		delimiter: ',',
 		removeWithBackspace: true,
 	});
+	
 	$('#make-request').on('click', function(event){
 
 		if ($('#job_titles_tagsinput').text() === "" && $('#excludes_tagsinput').text() === "" &&$('#includes_tagsinput').text() === ""){
@@ -65,6 +67,7 @@ function handleCreateRequest(){
 
 function getJobs(){
 	let jobTitles = $('#newRequestjobTitles').val()
+	
 	let excludes = $('#excludes').val()
 	let includes = $('#includes').val()
 	let data = {
