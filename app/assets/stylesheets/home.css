@@ -186,15 +186,15 @@
 			}
 
 			#main-title{
-				font-size: 6em;
+				font-size: 5em;
 				font-weight: 400;
 				color: antiquewhite;
 				position: relative;
-				padding: 260px 0px 5px 560px;
+				padding: 240px 0px 5px 560px;
 			}
 
 			#description{
-				font-size: 3em;
+				font-size: 2.5em;
 				font-weight: 200;
 				color: antiquewhite;
 				position: relative;
@@ -202,7 +202,7 @@
 			}
 
 			#main-div a{
-				font-size: 2em;
+				font-size: 1.5em;
 				font-weight: 100;
 				border-color: antiquewhite;
 				border-style: solid;
@@ -215,7 +215,7 @@
 			}
 
 			#main-div a:hover{
-				font-size: 2em;
+				font-size: 1.5em;
 				font-weight: 100;
 				border-color: orange;
 				border-style: solid;
