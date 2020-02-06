@@ -8,6 +8,10 @@ $(function(){
 	getJobs().then(function(data){
 		createJobs(data)
 		makeTable()
+		// delete the temporary request
+		fetch(`/requests/${requestId}`,{
+			method: 'DELETE'
+		})
 	})
 })
 

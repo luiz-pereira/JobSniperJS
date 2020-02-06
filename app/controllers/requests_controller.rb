@@ -54,7 +54,6 @@ class RequestsController < ApplicationController
 		@request.save
 		RequestService.new.get_jobs(@request)
 		render json: @request, status: 200
-		binding.pry
 	end
 
 private

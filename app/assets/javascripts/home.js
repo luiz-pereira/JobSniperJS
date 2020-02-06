@@ -44,13 +44,22 @@ function handleCreateRequest(){
 			$('#bottom').append('<div id="alert-bottom" class="alert alert-danger" role="alert">You need to fill at least one the fields or it will take too long!</div>')
 		} else {
 			event.preventDefault()
-			document.getElementById('newRequestjobTitles').disabled = true
-			document.getElementById('includes').disabled = true
-			document.getElementById('excludes').disabled = true
+			document.getElementById('newRequestjobTitles_tag').disabled = true
+			document.getElementById('includes_tag').disabled = true
+			document.getElementById('excludes_tag').disabled = true
+			document.getElementsByClassName('tag-text').disabled = true
 			document.getElementById('make-request').disabled = true
-			document.getElementById('make-request').Text = "Searching..."
-			getJobs()
-		}
+			document.getElementById('modal-close').disabled = true
+			document.getElementById('make-request').value = "Searching..."
+			try{
+				getJobs()
+			}
+			catch(err){
+				alert(err)
+				window.location.reload()
+			}
+
+		}	
 	})
 }
 
