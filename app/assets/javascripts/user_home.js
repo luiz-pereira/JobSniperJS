@@ -143,12 +143,12 @@ function handleCreateRequest(){
 		width: 'auto',
 		height: 'auto',
 		hide: true,
+		// searchOnFocus: true, 
 		delimiter: ',',
-		removeWithBackspace: true,
-		'autocomplete': {
-			source: ["Project Manager","Project Coordinator","Project Control Officer","Project Analyst","Investment Analyst","Analyst","Research","Product Manager"]
-		},
-		confirmKeys: [13, 9, 44]
+		removeWithBackspace: true
+		// autocomplete: {
+		// 	source: ["Project Manager","Project Coordinator","Project Control Officer","Project Analyst","Investment Analyst","Analyst","Research","Product Manager"]
+		// },
 	});
 
 	$('#includes').tagsInput({
