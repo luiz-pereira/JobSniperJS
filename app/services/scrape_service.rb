@@ -8,7 +8,7 @@ class ScrapeService
 		end
 
 		def process_request (params)
-			get_jobs (params)
+			get_jobs(params)
 			clean_jobs_by_title(@criteria)
 			get_description(@criteria)
 			clean_jobs_by_description(@criteria)
@@ -16,7 +16,7 @@ class ScrapeService
 
 		def get_jobs (params)
 			get_jobs_indeed(params) #indeed
-			get_jobs_td(params) #TD
+			# get_jobs_td(params) #TD
 		end
 
 		def get_jobs_indeed (params)
@@ -105,7 +105,7 @@ class ScrapeService
 
 		def get_description(criteria)
 			get_description_indeed(criteria)
-			get_description_td(criteria)
+			# get_description_td(criteria)
 		end
 
 		def get_description_indeed(criteria)
