@@ -35,7 +35,7 @@ class RequestsController < ApplicationController
 
 
 	def destroy
-		Request.find(params[:id]).delete
+		Request.find(params[:id]).destroy
 		render json: {success: true}, status: 200
 	end
 

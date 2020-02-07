@@ -7,9 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.delete_all
-Request.delete_all
-Job.delete_all
+Request.where(temporary: true).destroy_all
+Job.destroy_all
 JobTitlesSelection.delete_all
 
 StandardJobTitle.create({job_title: "Project Manager"})

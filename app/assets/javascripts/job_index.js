@@ -1,17 +1,21 @@
 const jobs = []
 let userId = ""
 let requestId = ""
+let temporary = false
 
 $(function(){
 	userId = $('#user-id').val()
 	requestId = $('#request-id').val()
+	temporary = $('#temporary').val()
 	getJobs().then(function(data){
 		createJobs(data)
 		makeTable()
 		// delete the temporary request
-		fetch(`/requests/${requestId}`,{
-			method: 'DELETE'
-		})
+		if (temporary === 'true'){
+			fetch(`/requests/${requestId}`,{
+				method: 'DELETE'
+			})
+		}
 	})
 })
 
