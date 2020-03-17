@@ -1,35 +1,8 @@
 <head>
 	<%= javascript_include_tag 'new_request' %>
 </head>
-
-	<%= form_for @request do |f| %>
-		<div class='text-center'>
-			<%= f.fields_for :job_titles do |jt| %>
-				<%= jt.label "Job titles"%><br>
-				<div class="d-flex justify-content-center input-group">
-					<%= jt.text_field :job_title, id: "newRequestjobTitles",class: "text-center col-md-2 form-control"%>
-				</div>
-			<% end %>
-
-			<%= f.fields_for :includes do |inc| %>
-				<br>
-				<%= inc.label "include terms"%><br>
-				<div class="d-flex justify-content-center input-group">
-					<%= inc.text_field :criteria, id: "includes",class: "text-center col-md-2 form-control"%>
-				</div>
-			<% end %>
-
-			<%= f.fields_for :excludes do |exc| %>
-				<br>
-				<%= exc.label "Exclude terms"%><br>
-				<div class="d-flex justify-content-center input-group">
-					<%= exc.text_field :criteria, id: "excludes",class: "text-center col-md-2 form-control"%>
-				</div>
-			<% end %>
-			<br>
-			<%= f.submit "Make Request", class:'btn-lg btn-success', id: "make-request" %>
-		</div>
-	<% end %>
+<body>
+</body>
  <br>
  <br>
 

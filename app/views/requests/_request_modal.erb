@@ -16,6 +16,13 @@
 								<%= jt.text_field :job_title, id: "newRequestjobTitles",class: "text-center col-md-2 form-control"%>
 							</div>
 						<% end %>
+						<%= f.fields_for :locations do |loc| %>
+							<br>
+							<%= loc.label "Cities"%><br>
+							<div class="d-flex justify-content-center input-group">
+								<%= loc.text_field :criteria, id: "locations",class: "text-center col-md-2 form-control"%>
+							</div>
+						<% end %>
 						<%= f.fields_for :includes do |inc| %>
 							<br>
 							<%= inc.label "include terms"%><br>

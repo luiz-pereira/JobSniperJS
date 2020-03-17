@@ -23,6 +23,9 @@ class RequestsController < ApplicationController
 		params[:excludes].split(',').each do |exclude|
 			@request.excludes.create({criteria: exclude})
 		end
+		params[:locations].split(',').each do |location|
+			@request.locations.create({city: location})
+		end
 		@request.date_updated = (Time.now-9999999).strftime("%d/%m/%Y")
 		@request.temporary = false
 		@request.save
@@ -51,6 +54,7 @@ class RequestsController < ApplicationController
 		params[:job_titles].split(',').each {|title| @request.job_titles.create(job_title: title)}
 		params[:includes].split(',').each {|criteria| @request.includes.create(criteria: criteria)}
 		params[:excludes].split(',').each {|criteria| @request.excludes.create(criteria: criteria)}
+		params[:locations].split(',').each {|location| @request.excludes.create(location: criteria)}
 		@request.save
 		RequestService.new.get_jobs(@request)
 		render json: @request, status: 200

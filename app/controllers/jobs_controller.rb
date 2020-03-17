@@ -12,7 +12,7 @@ class JobsController < ApplicationController
 	def update
 		@request = Request.find(params[:request_id])
 		RequestService.new.get_jobs(@request)
-		render json:{body: 'sucess'}, status: 200
+		render json:{body: 'success'}, status: 200
 	end
 
 	def jobs_data

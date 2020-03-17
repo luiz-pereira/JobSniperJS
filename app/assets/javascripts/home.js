@@ -37,6 +37,16 @@ function handleCreateRequest(){
 		delimiter: ',',
 		removeWithBackspace: true,
 	});
+
+	$('#locations').tagsInput({
+		interactive: true,
+		placeholder: 'Locations to be included',
+		width: 'auto',
+		height: 'auto',
+		hide: true,
+		delimiter: ',',
+		removeWithBackspace: true,
+	});
 	
 	$('#make-request').on('click', function(event){
 

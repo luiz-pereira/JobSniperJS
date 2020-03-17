@@ -2,9 +2,10 @@ class ScrapeService
 
 		attr_accessor :request_id, :criteria
 
-		def	initialize (request, criteria)
+		def	initialize (request, criteria, location)
 			@request = request
 			@criteria = criteria
+			@location = location
 		end
 
 		def process_request (params)
@@ -39,9 +40,9 @@ class ScrapeService
 
 		def format_link_indeed(params)
 			if params[:title] == ""
-				"https://www.indeed.ca/jobs?as_and=#{params[:include].join('+')}&as_any=&as_not=#{params[:exclude].join('+')}&as_ttl=&as_cmp=&jt=fulltime&st=&as_src=&salary=&radius=5&l=Toronto%2C+ON&fromage=any&limit=50&sort=date&psf=advsrch&filter=0&start=#{params[:page]}"
+				"https://www.indeed.ca/jobs?as_and=#{params[:include].join('+')}&as_any=&as_not=#{params[:exclude].join('+')}&as_ttl=&as_cmp=&jt=fulltime&st=&as_src=&salary=&radius=5&l=#{params[:location]}%2C+ON&fromage=any&limit=50&sort=date&psf=advsrch&filter=0&start=#{params[:page]}"
 			else
-				"https://www.indeed.ca/jobs?as_and=#{params[:include].join('+')}&as_phr=#{params[:title].gsub(' ','+')}&as_any=&as_not=#{params[:exclude].join('+')}&as_ttl=&as_cmp=&jt=fulltime&st=&as_src=&salary=&radius=5&l=Toronto%2C+ON&fromage=any&limit=50&sort=date&psf=advsrch&filter=0&start=#{params[:page]}"
+				"https://www.indeed.ca/jobs?as_and=#{params[:include].join('+')}&as_phr=#{params[:title].gsub(' ','+')}&as_any=&as_not=#{params[:exclude].join('+')}&as_ttl=&as_cmp=&jt=fulltime&st=&as_src=&salary=&radius=5&l=#{params[:location]}%2C+ON&fromage=any&limit=50&sort=date&psf=advsrch&filter=0&start=#{params[:page]}"
 			end
 		end
 
@@ -63,7 +64,7 @@ class ScrapeService
 				attribs[:request_id] = @request_id
 				attribs[:source] = "indeed"
 				attribs[:tipe] = "full-time"
-				attribs[:city] = "Toronto"
+				attribs[:city] = @location
 				attribs[:province] = "Ontario"
 				attribs[:country] = "Canada"
 				attribs[:criteria] = @criteria
@@ -81,7 +82,7 @@ class ScrapeService
 				attribs[:request_id] = @request_id
 				attribs[:source] = "td"
 				attribs[:tipe] = "full-time"
-				attribs[:city] = "Toronto"
+				attribs[:city] = @location
 				attribs[:province] = "Ontario"
 				attribs[:country] = "Canada"
 				attribs[:criteria] = @criteria

@@ -29,18 +29,19 @@ async function getRequest(request){
 
 function createRequests(data){
 	$(data).each(function(){
-		new Request(this.id, this.date_updated, this.job_count, this.job_titles, this.excludes, this.includes)
+		new Request(this.id, this.date_updated, this.job_count, this.job_titles, this.excludes, this.includes, this.locations)
 	})
 }
 
 class Request{
-	constructor(id, dateUpdated, jobCount, titles, excludes, includes){
+	constructor(id, dateUpdated, jobCount, titles, excludes, includes, locations){
 		this.id = id
 		this.dateUpdated = dateUpdated
 		this.jobCount = jobCount
 		this.titles = titles
 		this.excludes = excludes
 		this.includes = includes
+		this.locations = locations
 
 		requests.push(this)
 	}
@@ -51,7 +52,8 @@ class Request{
 			this.dateUpdated = data.date_updated
 			this.titles = data.job_titles
 			this.excludes = data.excludes
- 			this.includes = data.includes
+			this.includes = data.includes
+			this.locations = data.locations 
 		})
 		return await response
 	}
@@ -170,6 +172,17 @@ function handleCreateRequest(){
 		delimiter: ',',
 		removeWithBackspace: true,
 	});
+
+	$('#locations').tagsInput({
+		interactive: true,
+		placeholder: 'Locations to be included',
+		width: 'auto',
+		height: 'auto',
+		hide: true,
+		delimiter: ',',
+		removeWithBackspace: true,
+	});
+
 	$('#make-request').on('click', function(event){
 
 		if ($('#job_titles_tagsinput').text() === "" && $('#excludes_tagsinput').text() === "" &&$('#includes_tagsinput').text() === ""){
@@ -188,10 +201,12 @@ function postAndCreateRequest(){
 	let jobTitles = $('#newRequestjobTitles').val()
 	let excludes = $('#excludes').val()
 	let includes = $('#includes').val()
+	let locations = $('#locations').val()
 	let data = {
 		job_titles: jobTitles,
 		excludes: excludes,
 		includes: includes,
+		locations: locations
 	}
 	fetch(`/users/${userId}/requests`,{
 		method: 'post',
@@ -200,7 +215,7 @@ function postAndCreateRequest(){
 		body: JSON.stringify(data)
 	}).then(response => response.json())
 	.then(function(data){
-		request = new Request(data.id, data.date_updated, data.job_count, data.job_titles, data.excludes, data.includes)
+		request = new Request(data.id, data.date_updated, data.job_count, data.job_titles, data.excludes, data.includes, data.locations)
 		makeCard(request)
 		document.getElementById(`update-request-${request.id}`).click()
 	})
