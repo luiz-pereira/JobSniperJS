@@ -21,7 +21,7 @@ class PmiEmailsController < ApplicationController
 private
 
 	def pmi_email_params
-		params.require(:pmi_email).permit(:name, :credentials, :position, :mobile, :email)
+		params.require(:pmi_email).permit(:name, :credentials, :position, :phone, :email)
 	end
 
 

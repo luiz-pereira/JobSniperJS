@@ -1,58 +1,17 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class='container-fluid'>
-	<h3 class='textsign'>Hey, check your PMI email signature.</h3>
-</div>
-<br>
-<br>
-<br>
-<div class='container'>
-	<%= render partial: 'signature' %>
-	<br>
- 	<input type="button" value="Modify" onclick="history.back()" class='text-center mx-auto btn btn-primary'>
-</div>
-<br>
-<br>
-<br>
-<br>
+<%= javascript_include_tag 'application' %>
+<%= javascript_include_tag "pmi_email" %>
 
-<div class='container-fluid'>
-	<h4 class='textsign'>Now that you have your PMI email signature, copy it and follow these few steps to make it to work</h4>
-</div>
-<br>
-<br>
-<div class='container-fluid'>
-	<div class = 'row'>
-		<div class='col'>
-			<h5 class='textsign'>If you have a PMI email:</h5>
-			<p class='textsign col'>1. In Gmail, click the Gear icon, then click 'Settings'<br>
-				2. In the "Signature" section, paste (CTRL+V) your signature in the box<br>
-				3. Select the box below to remove the "--" line that precedes it<br>
-				4. At the bottom of the page, click Save Changes
-			</p>
-		</div>
-		<div class='col'>
-			<h5 class='textsign'>If you have a PMI email:</h5>
-			<p class='textsign col'>1. In Gmail, click the Gear icon, then click 'Settings'<br>
-				2. Click the tab that says 'Advanced'<br>
-				3. Click 'Enable' on the 'Canned Responses' prompt and save changes<br>
-				4. Start a new email by hitting 'Compose' in the upper left-hand corner of your inbox<br>
-				5. Paste (CTRL+V) the email signature<br>
-				6. Click the three dots icon on the bottom right-hand corner of the compose window, hover over 'Canned responses,' 'Save draft as template,' and then click 'Save as new template'<br>
-				7. Name your canned response<br>
-				8. When replying, forwarding or creating an email, click the three dots icon on the bottom right-hand corner of the email window, hover over 'Canned responses,' then click on the canned response name<br>
-				9. After the signature is pasted, add your recipient and click 'Send'
-			</p>
-		</div>
+<div class='container'>
+	<h3 id='textsign'>Here we go!</h3>
+	<div id="signature">
+		<%= render partial: 'signature' %>
 	</div>
+	<div id='buttons'>
+		<input type="button" value="Modify" onclick="history.back()" id='modify'>
+		<input type="button" value="Copy to email" id='copy-signature'>
+	</div>
+	<%= image_tag 'pmi_email/PMI_symbols.png', id: "symbols"%>
 </div>
+
+
 
