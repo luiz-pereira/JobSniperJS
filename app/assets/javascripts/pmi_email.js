@@ -7,13 +7,13 @@ $(function(){
 
 function copyArea(e){
 	var $temp = $("<input>")
-  $("body").append($temp)
+	$("body").append($temp)
+	
 	$temp.val($("#signature").html()).select()
 
 	var str = $("#signature").html()
 
 	function listener(e) {
-		debugger
 		e.clipboardData.setData("text/html", str)
 		e.clipboardData.setData("text/plain", str);
 		e.preventDefault()
