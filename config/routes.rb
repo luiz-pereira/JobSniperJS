@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-	resources :pmi_emails
+	get '/pmi-email' => 'pmi_emails#index'
+	get 'pmi-email/new' => 'pmi_emails#new'
+	post 'pmi-email/new' => 'pmi_emails#create'
+	get '/pmi-email/show' => 'pmi_emails#show'
+
 
 	resources :users do
 		resources :requests do

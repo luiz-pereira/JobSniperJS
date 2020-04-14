@@ -2,7 +2,7 @@ class PmiEmailsController < ApplicationController
 
 
 	def index
-		redirect_to new_pmi_email_path
+		redirect_to '/pmi-email/new'
 	end
 
 	def new
@@ -10,12 +10,13 @@ class PmiEmailsController < ApplicationController
 	end
 
 	def create
-		@pmi_email = PmiEmail.create(pmi_email_params)
-		redirect_to pmi_email_path(@pmi_email)
+		@pmi_email = PmiEmail.new(pmi_email_params)
+		session[:user_pmi] = @pmi_email
+		redirect_to "/pmi-email/show"
 	end
 
 	def show
-		@pmi_email=PmiEmail.find(params[:id])
+		@pmi_email = PmiEmail.new(session[:user_pmi])
 	end
 
 private

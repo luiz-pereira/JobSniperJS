@@ -7,7 +7,7 @@
 	</div>	
 <div id='container'>
 
-	<%= form_for @pmi_email, id:"form" do |f|%>
+	<%= form_for :pmi_email, id:"form" do |f|%>
 		<%= f.text_field :name,  required: true, placeholder: 'Full Name'%>
 		<%= f.text_field :credentials, placeholder: 'Credentials (Optional)' %>
 		<%= f.text_field :position, required: true, placeholder: 'Position name' %>
