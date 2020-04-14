@@ -6,8 +6,24 @@ $(function(){
 
 
 function copyArea(e){
-	e.preventDefault()
-	debugger
-	document.getElementById('signature').select()
-	document.execCommand('copy')
+	var $temp = $("<input>")
+  $("body").append($temp)
+	$temp.val($("#signature").html()).select()
+
+	var str = $("#signature").html()
+
+	function listener(e) {
+		debugger
+		e.clipboardData.setData("text/html", str)
+		e.clipboardData.setData("text/plain", str);
+		e.preventDefault()
+	}
+	
+  document.addEventListener("copy", listener)
+  document.execCommand("copy")
+  document.removeEventListener("copy", listener)
+
+  $temp.remove()
+  
 }
+
