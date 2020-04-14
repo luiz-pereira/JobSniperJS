@@ -16,7 +16,12 @@ class PmiEmailsController < ApplicationController
 	end
 
 	def show
-		@pmi_email = PmiEmail.new(session[:user_pmi])
+		if !session[:user_pmi] || session[:user_pmi].empty?
+			redirect_to "/pmi-email/new"
+		else
+			@pmi_email = PmiEmail.new(session[:user_pmi])
+			session[:user_pmi] = nil
+		end
 	end
 
 private
