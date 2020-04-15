@@ -24,6 +24,7 @@ function copyArea(e){
   document.removeEventListener("copy", listener)
 
   $temp.remove()
-  
+	$("#copy-signature").css('background', 'linear-gradient(45deg, #d5135a, #f05924)')
+	$("#copy-signature").val("copied!")
 }
 
