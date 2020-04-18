@@ -20,7 +20,7 @@ class PmiEmailsController < ApplicationController
 			redirect_to "/pmi-email/new"
 		else
 			@pmi_email = PmiEmail.new(session[:user_pmi])
-			session[:user_pmi] = nil
+			# session[:user_pmi] = nil
 		end
 	end
 

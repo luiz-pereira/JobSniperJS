@@ -9,7 +9,54 @@
 	<div id='buttons'>
 		<input type="button" value="Modify" onclick="history.back()" id='modify'>
 		<input type="button" value="Copy to email" id='copy-signature'>
+		<div id="myModal" class="modal">
+		  <div class="modal-content">
+    		<span id="modal-close">&times;</span>
+    		<h2>PMI Email Signature Guidelines</h2>
+				<h3>Outlook</h3>
+				<ul>
+					<li>Open a new email message</li>
+					<li>On the Message menu, select Signature>Edit Signatures</li>
+					<li>Under Select signature to edit, choose New or +(in Mac), and in the New Signature dialog box, type a name for the signature</li>
+					<li>Paste (CTRL+V) your PMI signature into the Edit signature box</li>
+					<li>If you want your signature added to all messages by default, in the E-mail account drop-down box, choose an email account to associate with the signature and select the PMI signature for new and/or replies/forwards drop-down box</li>
+					<li>If you don't want to automatically add a signature to new messages, choose (none). This doesn't add a signature to any messages you reply to or forward</li>
+					<li>Choose OK to save your new signature and return to your message</li>
+					<li>If you don't choose to insert a signature for all new messages or replies and forwards, you can still insert a signature manually in your email message, on the Message tab, select Signature</li>
+					<li>Choose your signature from the fly-out menu that appears. If you have more than one signature, you can select any of the signatures you've created.</li>
+				</ul>
+				<h3>GMAIL</h3>
+				<ul>
+					<li>Open the Gmail</li>
+					<li>On the Gear icon, then select Settings</li>
+					<li>Click the tab that says Advanced</li>
+					<li>Select Enable on the Canned Responses prompt and save changes</li>
+					<li>Start a new email by hitting Compose in the upper left-hand corner of your inbox</li>
+					<li>Paste (CTRL+V) your PMI signature</li>
+					<li>Select the three dots icon on the bottom right-hand corner of the compose window, hover over Canned responses>Save draft as template, and then select Save as new template</li>
+					<li>Name your canned response</li>
+					<li>When replying, forwarding or creating an email, select the three dots icon on the bottom right-hand corner of the email window, hover over Canned responses, then click on the canned response name</li>
+					<li>After the signature is pasted, add your recipient and select Send</li>
+				</ul>
+				<h3>Apple mail mobile</h3>
+				<ul>
+					<li>Paste (CTRL+V) your PMI signature in email from your computer or device and send it to yourself.</li>
+					<li>Open the Mail app.</li>
+					<li>Tap the email to open it.</li>
+					<li>Tap and hold the signature so that the selection tool appears.</li>
+					<li>Tap Select All to highlight the entire signature.</li>
+					<li>Tap Copy.</li>
+					<li>Press the Home button to return to your Home screen.</li>
+					<li>Launch Settings from your Home screen.</li>
+					<li>Tap Mail, Contacts, Calendars.</li>
+					<li>Tap Signature under the Mail section.</li>
+					<li>Tap and hold the empty Signature field to bring up the selection tool.</li>
+					<li>Tap Paste from the pop-up menu to insert your PMI signature.</li>
+				</ul>
+  		</div>
+		</div>
 	</div>
+	
 	<%= image_tag 'pmi_email/PMI_symbols.png', id: "symbols"%>
 </div>
 

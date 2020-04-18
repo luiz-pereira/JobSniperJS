@@ -102,7 +102,7 @@ input{
 }
 
 a{
-	text-decoration: none;
+	/* text-decoration: none; */
 	color: #05BFE0;
 }
 
@@ -131,9 +131,8 @@ a{
 
 #modify, #copy-signature{
 	display:inline;
-	background: linear-gradient(45deg, #1da1f2, #0e71c8);
-  box-shadow: 0px 4px 30px rgba(19, 127, 212, 0.4);
-	
+	background: #0080A8;
+  cursor:pointer;
 	border: none;
 	max-width: 17.7%;
 	width: 17.7%;
@@ -146,7 +145,7 @@ a{
 	color: #FFFFFF;
 }
 #modify:hover, #copy-signature:hover{
-	box-shadow: 0px 7px 30px rgba(19, 127, 212, 0.75);
+	box-shadow: 0px 3px 10px rgba(19, 127, 212, 0.75);
 }
 
 #modify{
@@ -155,4 +154,44 @@ a{
 
 #signature{
 	color: #575757;
+}
+
+.modal {
+	font-family: 'Montserrat', sans-serif;
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow-y: initial !important;
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+	margin: 10% auto; /* 15% from the top and centered */
+	height: 50%;
+	padding: 20px;
+	overflow-y: auto;
+  border: 1px solid #888;
+  width: 60%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+#modal-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#modal-close:hover,
+#modal-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
