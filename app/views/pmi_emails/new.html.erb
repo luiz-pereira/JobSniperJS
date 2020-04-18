@@ -10,7 +10,7 @@
 	<%= form_for :pmi_email, id:"form" do |f|%>
 		<%= f.text_field :name,  required: true, placeholder: 'Full Name'%>
 		<%= f.text_field :credentials, placeholder: 'Credentials (Optional)' %>
-		<%= f.text_field :position, required: true, placeholder: 'Position name' %>
+		<%= f.text_field :position, required: true, placeholder: 'Position Name' %>
 		<%= f.email_field :email, required: true, placeholder: 'Email' %>
 		<%= f.telephone_field :phone, placeholder: 'Phone Number (Optional)' %>
 		<%= f.submit "Create",id:'create' %>
