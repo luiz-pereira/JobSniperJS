@@ -14,17 +14,17 @@
 				<table cellpadding="0" cellspacing="0" width="100%">
 					<tbody>
 						<tr>
-							<td id='name' style="font-style:italic;font-weight:900;padding-bottom:7px;font-size:16px"><%= @pmi_email.name %>
+							<td id='name' style="font-weight:900;padding-bottom:7px;font-size:16px"><%= @pmi_email.name %>
 								<% unless @pmi_email.credentials.empty? %>
 									, <%= @pmi_email.credentials %> </td>
 								<% end %>
 						</tr>
 						<tr>
-								<td id='position' style="font-weight:normal;padding-bottom:7px"><%= @pmi_email.position %> | <span id="pmi-chapter" style="font-weight:500;color:rgb(5,191,224)">PMI Toronto Chapter</span></td>
+								<td id='position' style="font-weight:normal;padding-bottom:7px"><%= @pmi_email.position %> | <span id="pmi-chapter" style="font-weight:600;color:rgb(5,191,224)">PMI Toronto Chapter</span></td>
 						</tr>
 						<tr>
 							<td id = 'email' style="color:rgb(87,87,87);padding-bottom:7px">
-								E-mail: <a href=<%= "mailto:#{@pmi_email.email}"%> style="text-decoration:none;color:rgb(5,191,224)"> <%=@pmi_email.email%></a> | Website: <a href="http://pmitoronto.ca/" style="text-decoration:none;color:rgb(5,191,224)">pmitoronto.ca</a>
+								E-mail: <a href=<%= "mailto:#{@pmi_email.email}"%> style="text-decoration:none;color:rgb(5,191,224)"> <%=@pmi_email.email%></a> | Website: <a href="http://pmitoronto.ca/" style="font-weight:600;text-decoration:none;color:rgb(5,191,224)">pmitoronto.ca</a>
 							<td>
 						</tr>
 						<% unless @pmi_email.phone.empty? %>
