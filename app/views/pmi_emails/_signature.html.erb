@@ -24,13 +24,13 @@
 						</tr>
 						<tr>
 							<td id = 'email' style="color:rgb(87,87,87);padding-bottom:7px">
-								E-mail: <a href=<%= "mailto:#{@pmi_email.email}"%> style="text-decoration:none;color:rgb(5,191,224)"> <%=@pmi_email.email%></a> | Website: <a href="http://pmitoronto.ca/" style="font-weight:600;text-decoration:none;color:rgb(5,191,224)">pmitoronto.ca</a>
+								E-mail: <a href=<%= "mailto:#{@pmi_email.email}"%> style="font-weight:600;text-decoration:none;color:rgb(5,191,224)"> <%=@pmi_email.email%></a> | Website: <a href="http://pmitoronto.ca/" style="font-weight:600;text-decoration:none;color:rgb(5,191,224)">pmitoronto.ca</a>
 							<td>
 						</tr>
 						<% unless @pmi_email.phone.empty? %>
 							<tr>
 								<td id='phone' style="color:rgb(87,87,87);padding-bottom:7px">
-									P: <a id='phone' href=<%= "tel:#{@pmi_email.phone}"%> style="text-decoration:none;color:rgb(5,191,224)"><%= number_to_phone(@pmi_email.phone, area_code: true)%></a>
+									P: <a id='phone' href=<%= "tel:#{@pmi_email.phone}"%> style="font-weight:600;text-decoration:none;color:rgb(5,191,224)"><%= number_to_phone(@pmi_email.phone, area_code: true)%></a>
 								</td>
 							</tr>
 						<% end %>
