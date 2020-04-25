@@ -17,11 +17,14 @@ body{
 }
 
 #circles{
-	position:fixed;
+	position: absolute;
 	height: 80%;
-	max-width: 60%;
+	width:auto;
+	top:20%;
 	bottom:0px;
+	
 	right:0px;
+	z-index: -1;
 }
 
 #symbols{
