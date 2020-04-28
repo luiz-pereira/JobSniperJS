@@ -27,8 +27,9 @@ body{
 
 #symbols{
 	position:fixed;
-	height: 85%;
-	bottom:64px;
+	height: 43vmax;
+	max-width: 50%;
+	bottom:7%;
 	right:6%;
 }
 
@@ -72,15 +73,16 @@ input{
 	font-family: 'Montserrat', sans-serif;
 	color: #05BFE0;
 	font-weight: normal;
-	font-size: 30px;
+	font-size: 1.95vmax;
 	font-weight: 900;
 	margin-top: 11%;
-	margin-bottom: 80px;
+	margin-bottom: 7vmax;
 	margin-left: 6%;
 }
 
 #signature{
 	margin-left: 10%;
+	max-width: 40%;
 }
 
 #buttons{
@@ -93,9 +95,9 @@ input{
   cursor:pointer;
 	border: none;
 	max-width: 17.7%;
-	width: 17.7%;
+	width: 17vmax;
 	padding: 12px;
-	margin-top: 11.5%;
+	margin-top: 9vmax;
 	margin-right: 0.5%;
 	font-weight:400;
 	font-size:1.2vmax;
@@ -103,7 +105,7 @@ input{
 	color: #FFFFFF;
 }
 #modify:hover, #copy-signature:hover{
-	box-shadow: 0px 3px 10px rgba(19, 127, 212, 0.75);
+	box-shadow: 0px 0.1vmax 0.4vmax rgba(19, 127, 212, 0.75);
 }
 
 #modify{
