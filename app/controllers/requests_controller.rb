@@ -54,7 +54,7 @@ class RequestsController < ApplicationController
 		params[:job_titles].split(',').each {|title| @request.job_titles.create(job_title: title)}
 		params[:includes].split(',').each {|criteria| @request.includes.create(criteria: criteria)}
 		params[:excludes].split(',').each {|criteria| @request.excludes.create(criteria: criteria)}
-		params[:locations].split(',').each {|location| @request.excludes.create(location: criteria)}
+		params[:locations].split(',').each {|location| @request.locations.create(city: location)}
 		@request.save
 		RequestService.new.get_jobs(@request)
 		render json: @request, status: 200

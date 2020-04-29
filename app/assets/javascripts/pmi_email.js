@@ -1,7 +1,7 @@
 
 $(function(){
 	let copy = document.getElementById('copy-signature')
-	let close = document.getElementById('modal-close')
+	let close = document.getElementById('pmi-close')
 	close.addEventListener('click', closeModal)
 	copy.addEventListener('click', copyArea)
 

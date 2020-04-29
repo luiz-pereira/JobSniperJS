@@ -1,8 +1,8 @@
-body{
+.pmi{
 	font-family: sans-serif;
 }
 
-.container{
+.form-container-pmi{
 	display: inline-block;
 	width: 100%
 }
@@ -33,7 +33,7 @@ body{
 	right:6%;
 }
 
-input{
+.pmi-input{
 	display: block;
 	background-color: #DAF5FA;
 	border: none;
@@ -82,7 +82,8 @@ input{
 
 #signature{
 	margin-left: 10%;
-	max-width: 65%;
+	max-width: 60%;
+	font-family: sans-serif;
 }
 
 #buttons{
@@ -138,7 +139,7 @@ input{
 }
 
 /* The Close Button */
-#modal-close {
+#pmi-close {
   color: #aaa;
   float: right;
   font-size: 28px;

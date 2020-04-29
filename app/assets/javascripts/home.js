@@ -77,14 +77,14 @@ function handleCreateRequest(){
 
 function getJobs(){
 	let jobTitles = $('#newRequestjobTitles').val()
-	
 	let excludes = $('#excludes').val()
 	let includes = $('#includes').val()
+	let locations = $('#locations').val()
 	let data = {
 		job_titles: jobTitles,
 		excludes: excludes,
 		includes: includes,
-		temporary: true
+		locations: locations
 	}
 	fetch(`/requests/temp/`,{
 		method: 'post',
