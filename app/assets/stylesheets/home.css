@@ -189,19 +189,26 @@
 				font-size: 5em;
 				font-weight: 400;
 				color: antiquewhite;
-				position: relative;
-				padding: 240px 0px 5px 560px;
+				position: absolute;
+				left: 50%;
+				top: 36%;
+
 			}
 
 			#description{
 				font-size: 2.5em;
 				font-weight: 200;
+				right: 15%;
 				color: antiquewhite;
-				position: relative;
-				padding: 0 0 20px 560px;
+				position: absolute;
+				left: 50%;
+				top: 47%;
 			}
 
 			#main-div a{
+				position: absolute;
+				left: 50%;
+				top: 37%;
 				font-size: 1.5em;
 				font-weight: 100;
 				border-color: antiquewhite;
@@ -210,19 +217,19 @@
 				border-radius: 10px;
 				text-decoration: none;
 				color: antiquewhite;
-				margin: 20px 0 0 560px;
 				padding: 5px 5px 5px 5px;
 			}
 
 			#main-div a:hover{
+				position: absolute;
+				left: 50%;
+				top: 37%;
 				font-size: 1.5em;
 				font-weight: 100;
 				border-color: orange;
 				border-style: solid;
 				border-radius: 10px;
-			
 				text-decoration: none;
 				color: orange;
-				margin: 20px 0 0 560px;
 				padding: 5px 5px 5px 5px;
 			}
