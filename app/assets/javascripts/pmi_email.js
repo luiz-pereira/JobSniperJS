@@ -2,11 +2,18 @@
 $(function(){
 	let copy = document.getElementById('copy-signature')
 	let close = document.getElementById('pmi-close')
+	
+	let sign = document.getElementById('signature')
+	sign.addEventListener('contextmenu', notCopy)
 	close.addEventListener('click', closeModal)
 	copy.addEventListener('click', copyArea)
 
 })
 
+function notCopy(e){
+	alert("To copy please use button 'Copy to email'")
+	e.preventDefault()
+}
 
 function copyArea(e){
 	var $temp = $("<input>")
@@ -24,7 +31,7 @@ function copyArea(e){
 						</body>
 						</html>
 						`
-						
+
 	function listener(e) {
 		e.clipboardData.setData("text/html", str)
 		e.clipboardData.setData("text/plain", str);
