@@ -1,55 +1,76 @@
-
-<table style="word-wrap:break-word;line-break:after-white-space;color:rgb(87,87,87);font-family:sans-serif, arial">
-	<tbody>
-		<tr>
-			<td width="150">
-				<table width="100%">
-					<tbody>
-						<tr>
-							<td>
-								<%= link_to (image_tag 'http://www.jobsniper.ca/images/pmi_chapter_toronto_logo_nobg.png', id:'logo', alt:"logo", height:"46", style: "margin-right:20px; margin-bottom:15px;text-decoration:none"), "http://pmitoronto.ca/"%>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<a href=<%= "https://www.linkedin.com/company/pmi-toronto/"%> style="text-decoration:none;color:rgb(5,191,224)"> <%= image_tag 'http://www.jobsniper.ca/images/linkedin_hi.png', height: '22', class: 'socialicons'%></a>
-								<a href=<%= "https://www.instagram.com/pmitoronto/"%> style="text-decoration:none;color:rgb(5,191,224)"> <%= image_tag 'http://www.jobsniper.ca/images/instagram_hi.png', height: '22', class: 'socialicons'%></a>
-								<a href=<%= "https://twitter.com/PMITORONTO"%> style="text-decoration:none;color:rgb(5,191,224)"> <%= image_tag 'http://www.jobsniper.ca/images/twitter_hi.png', height: '22', class: 'socialicons'%></a>
-								<a href=<%= "https://www.facebook.com/PMITorontoChapter/"%> style="text-decoration:none;color:rgb(5,191,224)"> <%= image_tag 'http://www.jobsniper.ca/images/facebook_hi.png', height: '22', class: 'socialicons'%></a>
-								<a href=<%= "https://www.youtube.com/PMISOC"%> style="text-decoration:none;color:rgb(5,191,224)"> <%= image_tag 'http://www.jobsniper.ca/images/youtube_hi.png', height: '22', class: 'socialicons'%></a>
-							<td>
-						</tr>
-					</tbody>	
-				</table>
-			</td>
-			<td id='line' width="450" style="border-left:4px solid rgb(5,191,224);padding-left:25px;height:87px">
-				<table cellpadding="0" cellspacing="0" width="100%">
-					<tbody>
-						<tr>
-							<td id='name' style="font-weight:900;padding-bottom:7px;font-size:16px"><%= @pmi_email.name %>
-								<% unless @pmi_email.credentials.empty? %>
-									, <%= @pmi_email.credentials %> </td>
-								<% end %>
-						</tr>
-						<tr>
-								<td id='position' style="font-weight:normal;padding-bottom:7px"><%= @pmi_email.position %> | <span id="pmi-chapter" style="font-weight:600;color:rgb(5,191,224)">PMI Toronto Chapter</span></td>
-						</tr>
-						<tr>
-							<td id = 'email' style="color:rgb(87,87,87);padding-bottom:7px">
-								E-mail: <a href=<%= "mailto:#{@pmi_email.email}"%> style="font-weight:600;text-decoration:none;color:rgb(5,191,224)"> <%=@pmi_email.email%></a> | Website: <a href="http://pmitoronto.ca/" style="font-weight:600;text-decoration:none;color:rgb(5,191,224)">pmitoronto.ca</a>
-							<td>
-						</tr>
-						<% unless @pmi_email.phone.empty? %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+<head>
+</head>
+<body>
+	
+	<meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+	<table style="line-break:after-white-space;color:rgb(87,87,87);font-family:sans-serif, arial">
+		<tbody>
+			<tr>
+				<td width="150">
+					<table width="100%">
+						<tbody>
 							<tr>
-								<td id='phone' style="color:rgb(87,87,87);padding-bottom:7px">
-									P: <a id='phone' href=<%= "tel:#{@pmi_email.phone}"%> style="font-weight:600;text-decoration:none;color:rgb(5,191,224)"><%= number_to_phone(@pmi_email.phone, area_code: true)%></a>
+								
+									<%= link_to (image_tag 'http://www.jobsniper.ca/images/pmi_chapter_toronto_logo_nobg.png', id:'logo', alt:"logo", height:"46", style: "text-decoration:none"), "http://pmitoronto.ca/"%>
+								
+							</tr>
+							<tr height='7px'></tr>
+							<tr>
+								<td>
+									<a href=<%= "https://www.linkedin.com/company/pmi-toronto/"%> style="text-decoration:none;color:rgb(5,191,224)"> <%= image_tag 'http://www.jobsniper.ca/images/linkedin_hi.png', height: '22', class: 'socialicons'%></a>
+								</td>
+								<td width="2px"></td>
+								<td>
+									<a href=<%= "https://www.instagram.com/pmitoronto/"%> style="text-decoration:none;color:rgb(5,191,224)"> <%= image_tag 'http://www.jobsniper.ca/images/instagram_hi.png', height: '22', class: 'socialicons'%></a>
+								</td>
+								<td width="2px"></td>
+								<td>
+									<a href=<%= "https://twitter.com/PMITORONTO"%> style="text-decoration:none;color:rgb(5,191,224)"> <%= image_tag 'http://www.jobsniper.ca/images/twitter_hi.png', height: '22', class: 'socialicons'%></a>
+								</td>
+								<td width="2px"></td>
+								<td>
+									<a href=<%= "https://www.facebook.com/PMITorontoChapter/"%> style="text-decoration:none;color:rgb(5,191,224)"> <%= image_tag 'http://www.jobsniper.ca/images/facebook_hi.png', height: '22', class: 'socialicons'%></a>
+								</td>
+								<td width="2px"></td>
+								<td>
+									<a href=<%= "https://www.youtube.com/PMISOC"%> style="text-decoration:none;color:rgb(5,191,224)"> <%= image_tag 'http://www.jobsniper.ca/images/youtube_hi.png', height: '22', class: 'socialicons'%></a>
 								</td>
 							</tr>
-						<% end %>
-						
-					</tbody>
-				</table>
-			</td>
-		</tr>
-	</tbody>
-</table>
+						</tbody>	
+					</table>
+				</td>
+				<td id='line' width="450" style="border-left:4px solid rgb(5,191,224);padding-left:25px;height:87px">
+					<table cellpadding="0" cellspacing="0" width="100%">
+						<tbody>
+							<tr>
+								<td id='name' style="font-weight:900;padding-bottom:7px;font-size:16px"><%= @pmi_email.name %>
+									<% unless @pmi_email.credentials.empty? %>
+										, <%= @pmi_email.credentials %> </td>
+									<% end %>
+							</tr>
+							<tr>
+									<td id='position' style="font-weight:normal;padding-bottom:7px"><%= @pmi_email.position %> | <span id="pmi-chapter" style="font-weight:600;color:rgb(5,191,224)">PMI Toronto Chapter</span></td>
+							</tr>
+							<tr>
+								<td id = 'email' style="color:rgb(87,87,87);padding-bottom:7px">
+									E-mail: <a href=<%= "mailto:#{@pmi_email.email}"%> style="font-weight:600;text-decoration:none;color:rgb(5,191,224)"> <%=@pmi_email.email%></a> | Website: <a href="http://pmitoronto.ca/" style="font-weight:600;text-decoration:none;color:rgb(5,191,224)">pmitoronto.ca</a>
+								<td>
+							</tr>
+							<% unless @pmi_email.phone.empty? %>
+								<tr>
+									<td id='phone' style="color:rgb(87,87,87);padding-bottom:7px">
+										P: <a id='phone' href=<%= "tel:#{@pmi_email.phone}"%> style="font-weight:600;text-decoration:none;color:rgb(5,191,224)"><%= number_to_phone(@pmi_email.phone, area_code: true)%></a>
+									</td>
+								</tr>
+							<% end %>
+							
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
