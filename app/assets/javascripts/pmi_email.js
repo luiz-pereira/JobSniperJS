@@ -14,8 +14,17 @@ function copyArea(e){
 	
 	$temp.val($("#signature").html()).select()
 
-	var str = $("#signature").html()
-
+	var str = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+						<html>
+						<head>
+						</head>
+						<body>
+						<meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+						${$("#signature").html()}
+						</body>
+						</html>
+						`
+						
 	function listener(e) {
 		e.clipboardData.setData("text/html", str)
 		e.clipboardData.setData("text/plain", str);
