@@ -45,10 +45,8 @@
 					<table cellpadding="0" cellspacing="0" width="100%">
 						<tbody>
 							<tr>
-								<td id='name' style="font-family:sans-serif,arial;font-weight:900;padding-bottom:7px;font-size:16px"><%= @pmi_email.name %>
-									<% unless @pmi_email.credentials.empty? %>
-										,<%= @pmi_email.credentials %> </td>
-									<% end %>
+								<td id='name' style="font-family:sans-serif,arial;font-weight:900;padding-bottom:7px;font-size:16px"><%= @pmi_email.name + "#{@pmi_email.credentials.empty? ? '' : ", #{@pmi_email.credentials}"}" %></td>
+									
 							</tr>
 							<tr>
 									<td id='position' style="font-family:sans-serif,arial;font-weight:normal;padding-bottom:7px;font-size:16px"><%= @pmi_email.position %> | <span id="pmi-chapter" style="font-family:sans-serif, arial;font-weight:600;color:rgb(5,191,224)">PMI Toronto Chapter</span></td>
