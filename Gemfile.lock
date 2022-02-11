@@ -164,7 +164,8 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (4.0.5)
-    puma (3.12.6)
+    puma (4.3.11)
+      nio4r (~> 2.0)
     rack (2.2.3)
     rack-proxy (0.6.5)
       rack
@@ -293,7 +294,7 @@ DEPENDENCIES
   pg (~> 1.1)
   popper_js (~> 1.14)
   pry
-  puma (~> 3.11)
+  puma (~> 4.3)
   rails
   rspec-rails
   sass-rails
